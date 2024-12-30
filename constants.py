@@ -1,0 +1,75 @@
+
+import re
+
+def get_terms_from_text(text):
+    # Используем регулярное выражение для разделения по любым пробельным символам
+    terms = re.split(r'\s*\n\s*', text.strip())
+
+    # Удаление пустых строк
+    terms = [term for term in terms if term]
+
+    return terms
+
+vacancies_file='AI_DS_vacancies.json'
+vacancies_csv='AI_DS_vacancies.csv'
+professions_csv='AI_DS_professions.csv'
+salary_by_prof_file = 'AI_DS_salary_professions.csv'
+
+file_descriptions = "AI_DS_descriptions.csv"
+bad_descriptions_file = "AI_DS_bad_descriptions.csv"
+ML_key_skills_file = 'AI_DS_key_skills.csv'
+
+VACANCY_URL= "https://api.hh.ru/vacancies"
+REQUIREMENTS_PATTERN = 'Требования|плюсом|жд[ёе]м|Ожида|ХОТИМ ВИДЕТЬ|важн|Require|кандидат|знани|навык|пожелани|опыт|умения|будем рады|компетенции|каким видим|рассмотреть|желательно|ценим|нужен|идеал|понадобится|skill|скил|Обязанности|Задачи|Чем предстоит заниматься|ждем|ожидаем|Summary of position|требуется|о задачах'
+
+# SEARCH_QUERY1 = 'NAME: (ML OR DS OR NLP OR LLM OR ИИ OR AI) AND (программист OR инженер OR разработчик OR тимлид OR аналитик OR analyst OR engineer OR developer)'
+# SEARCH_QUERY2 = 'NAME: "дата сайнтист" OR "data scientist"'
+# SEARCH_QUERY3 = 'NAME: Nlp OR "DS engineer" OR "AI developer" OR "AI engineer" OR "Data Scientist" OR "ML developer"'
+
+search_text = """
+NLP
+LLM
+Data Scientist
+DS engineer
+промпт инженер
+prompt engineer
+computer vision
+speech recognition
+Deep Learning
+Robotics Engineer
+AI Engineer
+AI developer
+ML developer
+ML Engeneer
+MLOps Engineer
+"""
+
+prof_roles_text = """
+Руководитель группы разработки
+Дата-сайентист
+Программист, разработчик
+Тестировщик
+Руководитель проектов
+Аналитик
+Технический писатель
+BI-аналитик
+Менеджер продукта
+Учитель, преподаватель, педагог
+DevOps-инженер
+Архитектор
+Системный инженер
+Другое
+"""
+
+terms = get_terms_from_text(search_text)
+print(terms)
+
+prof_roles_list = get_terms_from_text(prof_roles_text)
+print(prof_roles_list)
+
+# Заключение в кавычки и объединение через " OR "
+quoted_terms = [f'"{term}"' for term in terms]
+search_query = ' OR '.join(quoted_terms)
+search_query = f'NAME:{search_query}'
+
+print(search_query)
