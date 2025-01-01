@@ -1,0 +1,1291 @@
+Term,Count
+python,272
+ml,184
+sql,170
+pytorch,104
+docker,93
+pandas,77
+nlp,74
+spark,72
+hadoop,72
+tensorflow,69
+numpy,65
+git,65
+kubernetes,59
+linux,59
+airflow,55
+llm,44
+machine learning,43
+data science,43
+dl,42
+postgresql,41
+cd,40
+ci,40
+mlflow,38
+ai,37
+scikit-learn,35
+java,34
+bash,34
+kafka,32
+big data,32
+devops,31
+ds,31
+transformers,29
+sklearn,28
+pyspark,28
+hive,27
+clickhouse,26
+a,26
+b,26
+data scientist,25
+r,24
+etl,24
+mlops,24
+grafana,23
+catboost,22
+машинное обучение,22
+prometheus,20
+k8s,20
+production,19
+cv,18
+bert,18
+gitlab,18
+matplotlib,18
+deep learning,18
+xgboost,18
+jira,18
+rag,18
+ansible,18
+hdfs,17
+it,17
+recsys,17
+математическая статистика,17
+c,17
+apache airflow,16
+scipy,16
+nosql,16
+lightgbm,16
+api,15
+fastapi,15
+gpt,15
+postgres,15
+greenplum,14
+computer vision,14
+jenkins,14
+dwh,14
+scala,14
+confluence,13
+ci/cd,13
+go,13
+jax,13
+bi,13
+keras,13
+etc,12
+анализ данных,12
+mysql,12
+ms sql,12
+apache spark,12
+data scientists,11
+рекомендательные системы,11
+zabbix,11
+langchain,11
+ai-first,10
+rnn,10
+gpu,10
+impala,10
+apache kafka,10
+dvc,10
+time series analysis,10
+речевые технологии,10
+ml-антифрод,10
+предиктивные технологии,10
+speech,10
+компьютерное зрение,10
+диалоговые системы,10
+algorithms,9
+mongodb,9
+agile,9
+ner,9
+golang,9
+power bi,9
+amp,9
+s3,9
+uplift,9
+oracle,9
+seaborn,9
+bitbucket,8
+разработка поисковых технологий,8
+nltk,8
+data analysis,8
+gitlab ci,8
+scrum,8
+английский язык,8
+rabbitmq,8
+elk,8
+классическое машинное обучение,8
+javascript,8
+opencv,8
+openshift,7
+rest api,7
+nginx,7
+kubeflow,7
+математическое моделирование,7
+excel,7
+ltv,7
+lstm,7
+flask,7
+управление командой,7
+de,7
+алгоритмы и структуры данных,7
+pd,7
+olap,6
+lgd,6
+aws,6
+ead,6
+data engineer,6
+php,6
+sota,6
+kaggle,6
+middle,6
+elasticsearch,6
+helm,6
+torch,6
+quot,6
+github,6
+d,6
+feature engineering,6
+cnn,6
+recommender systems,6
+a/b тесты,6
+prod,6
+redis,6
+аналитическое мышление,6
+cassandra,5
+tf-idf,5
+prompt engineering,5
+azure,5
+transformer,5
+ocr,5
+rnd,5
+nexus,5
+superset,5
+unix,5
+rhel,5
+computer science,5
+onnx,5
+terraform,5
+mvp,5
+rest,5
+gpt-like,5
+reinforcement learning,5
+senior,5
+code review,5
+базы данных,4
+code-review,4
+аналитические исследования,4
+ad-hoc,4
+bert-like,4
+rl,4
+centos,4
+vertica,4
+automl,4
+ml ops,4
+data engineers,4
+kanban,4
+statsmodels,4
+presto,4
+atlassian confluence,4
+bigdata,4
+jupyterhub,4
+ms excel,4
+статистический анализ,4
+feast,4
+математический анализ,4
+flink,4
+feature store,4
+fintech,4
+iac,4
+c++,4
+elt,4
+jupyter,4
+yandex cloud,4
+prophet,4
+data lake,4
+qa,4
+plotly,4
+tableau,4
+eda,4
+join,3
+b2c,3
+state-of-the-art,3
+streamlit,3
+субд,3
+neo4j,3
+bamboo,3
+hugging face,3
+data mining,3
+nbo,3
+oc linux,3
+gigachat,3
+self-driving,3
+open-source,3
+fine-tuning,3
+ubuntu,3
+full-stack,3
+polars,3
+vba,3
+dask,3
+t5,3
+saas,3
+eks,3
+vpn,3
+open source,3
+yarn,3
+web,3
+vllm,3
+cron,3
+grpc,3
+dataops,3
+data analysts,3
+lora,3
+teamcity,3
+embedding,3
+data,3
+sft,3
+forecasting,3
+groovy,3
+e,3
+vmware,3
+b1,3
+e-commerce,3
+powerbi,3
+ctr,3
+argocd,3
+sre,3
+kotlin,3
+aiohttp,3
+ip,3
+unit,3
+fine-tuning llm,3
+b2,3
+tensorrt,3
+neptune,3
+product owner,3
+luigi,3
+data vault,3
+artifactory,2
+ros,2
+adas,2
+machine learning engineer,2
+infrastructure as code,2
+sdn,2
+c#,2
+sds,2
+ldap,2
+networkx,2
+kubernets,2
+nba,2
+data science analytical platform,2
+vk,2
+cpu,2
+offline,2
+online,2
+embeddings,2
+asyncio,2
+cuped,2
+clearml,2
+best practice,2
+rtb,2
+sas,2
+self-attention,2
+cd pipelines,2
+atlassian jira,2
+bert4rec,2
+cicd,2
+po,2
+lidar,2
+g,2
+robot operating system,2
+variance reduction,2
+dash,2
+computational advertising,2
+нейронные сети,2
+c/c++,2
+spacy,2
+shell,2
+postgresq,2
+a/b-experiments,2
+docker-compose,2
+key-value,2
+alertmanager,2
+docker compose,2
+search ranking,2
+team lead,2
+resnet,2
+continuous deployment,2
+astra,2
+nlu,2
+neural nets,2
+mathematics,2
+llama2,2
+руководство коллективом,2
+camunda,2
+or-tools,2
+ssh,2
+routines,2
+continuous integration,2
+olap (online analytical processing),2
+apache hadoop,2
+circleci,2
+mask r-cnn,2
+async,2
+mpp,2
+smp,2
+retail,2
+apache spark structured streaming,2
+sktime,2
+skforecast,2
+qwen,2
+soft skills,2
+auto-encoders,2
+peft,2
+openapi,2
+json,2
+graylog,2
+observability,2
+apache cassandra,2
+openstack,2
+data lineage,2
+trello,2
+huggingface,2
+wandb,2
+performance review,2
+brd,2
+prefect,2
+svd,2
+банки,2
+скоринг,2
+enterprise architect,2
+self review,2
+backlog,2
+end2end,2
+atlassian bitbucket,2
+прогнозирование,2
+валидация моделей,2
+qdrant,2
+bigquery,2
+milvus,2
+qgis,2
+arcgis,2
+дзз,2
+gis,2
+nifi,2
+yolo,2
+shapely,2
+geopy,2
+l4t,2
+geopandas,2
+геоинформационные системы,2
+red os,2
+splunk,2
+rpc,2
+restful api,2
+работа с большим объемом информации,2
+streaming,2
+fmcg,2
+acl,2
+model serving,2
+intermediate,2
+data engineering,2
+end-to-end,2
+upper intermediate,2
+anomaly detection,2
+spark streaming,2
+nlp-решения,2
+apache hive,2
+cloud,2
+lightfm,2
+ml и dl алгоритмы,2
+power point,2
+devops pipelines,2
+istio,2
+mapreduce,2
+look-a-like,2
+ml pipeline,2
+dashboards,2
+yandex,2
+sla,2
+on-premise,2
+natural language processing,2
+hardware,2
+fast api,2
+ssl,2
+dsml,2
+ml platform,2
+gitops,2
+rlhf,2
+logstash,2
+opensearch,2
+kibana,2
+cloud native,2
+tcp,2
+oltp,2
+google cloud,2
+data analyst,2
+google,2
+gensim,2
+er,2
+uml,2
+kpi,2
+okr,2
+digital,2
+аналитика продаж,1
+arenadata,1
+feature-store,1
+sql-api,1
+airflow dags,1
+kan,1
+gitlab-ci,1
+time series forecasting,1
+vad,1
+anti-spoofing,1
+linux shell,1
+языковые модели,1
+gpt-4,1
+spark mllib,1
+azure ml,1
+e2e,1
+aws sagemaker,1
+yandex cloud platform,1
+azure data flow,1
+apache nifi,1
+pentaho,1
+ml pipelines,1
+jupyter notebook,1
+cpm,1
+ecpm,1
+redos,1
+ceph,1
+solution architect,1
+astralinux,1
+pricing,1
+b2a,1
+time-series,1
+sqlalchemy,1
+psycopg,1
+informatica,1
+qliksense,1
+pentaho bi,1
+talend,1
+juniper jncip,1
+ccie,1
+cisco ccnp,1
+bart,1
+kenlm,1
+hmm,1
+cbow,1
+engineer,1
+ram,1
+vmware esxi,1
+mq,1
+qlikview,1
+grafana on call,1
+victoria metrics,1
+vowpalwabbit,1
+skip-gram,1
+pyonmttok,1
+fsts,1
+crf,1
+scilab,1
+openmp,1
+cuda,1
+fortran,1
+mpi,1
+matlab,1
+tesla,1
+astra linux,1
+activemq,1
+rusal dsml,1
+dataflow,1
+amazon,1
+software system,1
+mops,1
+pam,1
+model services,1
+dba,1
+ci-cd,1
+nvidia,1
+data distrubution service,1
+opensearch dashboards,1
+filebeat,1
+mikrotik,1
+gitlab registry,1
+microtic,1
+servicemesh,1
+docker registry,1
+harbor,1
+dr,1
+disaster recovery,1
+search,1
+implicit,1
+fragment,1
+dry,1
+view,1
+firebase,1
+clean architecture,1
+di,1
+vault,1
+active directory,1
+copmuter vision,1
+experiment management,1
+scrum kanban,1
+data sciene and machine learning,1
+native,1
+kerberos,1
+com,1
+f,1
+sql server,1
+dart,1
+broadcastreceiver,1
+room,1
+activity,1
+android,1
+rectools,1
+algoritms,1
+postgre,1
+helm-charts,1
+atlassian stack,1
+selection,1
+oracle sql,1
+voice2text,1
+nl,1
+x,1
+data lakehouse,1
+ms sql server,1
+data warehouse,1
+avro,1
+parquet,1
+solid,1
+data scinetist,1
+disks,1
+apache ozone,1
+rspan,1
+static,1
+eltex,1
+1x,1
+mr,1
+amqp,1
+hbase,1
+nix,1
+classic ml,1
+google collab,1
+грамотная письменная речь,1
+i,1
+ит-архитектура,1
+написание статей,1
+v100,1
+hgx,1
+usergate,1
+ips,1
+vrf,1
+s-terra,1
+huawei,1
+lgbm,1
+gnn,1
+udf,1
+ir,1
+tts,1
+okko,1
+vision,1
+asr,1
+powerpoint,1
+ngfw,1
+lacp,1
+pytotch,1
+parameter-efficient fine-tuning,1
+tensor parallelism,1
+audio llm,1
+model,1
+nat,1
+stp,1
+vlan,1
+ospf,1
+vrrp,1
+bgp,1
+mlag,1
+twice,1
+checkpoint,1
+dynamic,1
+rstp,1
+boosting,1
+mistral,1
+nn,1
+gan,1
+argo workflows,1
+sinaraml,1
+windows servers,1
+jupyter lab,1
+fortinet,1
+palo alto networks,1
+cisco,1
+routing,1
+span,1
+text2image,1
+p-tuning,1
+image rag,1
+postgis,1
+системный анализ,1
+google analytics,1
+amplitude,1
+supervised,1
+unsupervised,1
+pivot,1
+geoserver,1
+sasplanet,1
+leaflet,1
+postgress sql,1
+pycharm,1
+основы баз данных,1
+boost,1
+switching,1
+soap api,1
+fullhd,1
+marketing mix modeling,1
+mmm,1
+weights,1
+arize,1
+phoenix,1
+biases,1
+mlops stack,1
+da,1
+horovod,1
+plp,1
+sqlite,1
+spark java framework,1
+phyton,1
+osm,1
+h3,1
+tidb,1
+yugabyte,1
+ydb,1
+scylla,1
+near real time,1
+прикладная статистика,1
+flutter,1
+core ml,1
+tls,1
+dependency injection,1
+kiss,1
+tensorflow lite,1
+distibuted,1
+data scientis,1
+ui,1
+faiss,1
+efk,1
+marketing,1
+markdown,1
+uml open api 3.0 draw.io atlassian jira atlassian confluence,1
+googlle colab,1
+nielsen,1
+gfk,1
+data sphere,1
+data proc,1
+sell out,1
+on hadoop,1
+batch,1
+workmanager,1
+query,1
+node.js,1
+django framework,1
+zoom,1
+управление разработкой,1
+udemy,1
+coursera,1
+open,1
+mathematical modeling,1
+change point detection,1
+event sequences,1
+ml flow,1
+регрессионный анализ,1
+fluentd,1
+bare-metal kubernetes,1
+kubespray,1
+partitions,1
+patroni,1
+users,1
+goodforecast,1
+nova bi,1
+pgsql,1
+ftp,1
+psycopg2,1
+pil,1
+multiprocessing,1
+topics,1
+xg,1
+carry-trade,1
+decision trees,1
+timeseries,1
+crowdsourcing,1
+arxiv,1
+peft-a,1
+высокие коммуникативные навыки,1
+риск аналитика,1
+теория вероятности,1
+ddl,1
+oozie,1
+dax,1
+ssas,1
+sql server analysis services,1
+кредитные риски,1
+plan,1
+io,1
+soap,1
+bpmn,1
+sap,1
+in,1
+visio,1
+draw,1
+cto,1
+bare metal,1
+postgre sql,1
+пимл,1
+обучение и развитие,1
+обучение,1
+информационные технологии,1
+cte,1
+js,1
+flask11,1
+css,1
+basic level9,1
+react,1
+senior critical skills,1
+pre-training from scratch,1
+senior other skills,1
+aws certified data analytics,1
+redshift,1
+cloudera certified professional,1
+data architects,1
+spark history server,1
+ceph s3,1
+риск менеджмент,1
+ruby,1
+html,1
+domain-based,1
+pyro6,1
+pyro,1
+docker10,1
+kmeans,1
+express42,1
+flant,1
+huggingface transformers,1
+hybrid,1
+big data tools,1
+corenlp,1
+ml engineering,1
+c kubeflow,1
+r&d,1
+unix-системы,1
+c sas,1
+slearn,1
+pyplot,1
+nlp c,1
+meet-up,1
+скоринговые модели,1
+data pipelines,1
+google professional data engineer,1
+ml-engineering,1
+chatgpt,1
+artificial intelligence,1
+администрирование серверов linux,1
+spark jobs,1
+dags,1
+jar,1
+reasoning,1
+few-shot learning,1
+layout detection,1
+unsloth,1
+vectordb,1
+pm,1
+backend,1
+text generation,1
+performance optimization,1
+storm,1
+samza,1
+beam,1
+best practices,1
+o,1
+data catalogue,1
+collaborative filtering,1
+content-based,1
+group by,1
+select,1
+having,1
+anchor model,1
+nvidia triton inference server,1
+onprem,1
+split-brain awareness,1
+very large language models,1
+product management,1
+hr tech,1
+умение принимать решения,1
+lightning,1
+soft-skills,1
+искусственный интеллект ai,1
+ned,1
+nerd,1
+classification,1
+nel,1
+frm,1
+prm,1
+icaap,1
+cfa,1
+basel,1
+load-balancers,1
+frontend,1
+auto-sklearn,1
+pymoo,1
+optuna,1
+nbeats,1
+h2o,1
+lightautoml,1
+shap,1
+optaplanner,1
+featuretools,1
+tsfresh,1
+dqi,1
+real time bidding,1
+post-mortem,1
+best practices aws well-architected framework,1
+root-cause,1
+ability to apply scientific models and knowledge to real-world problems,1
+programming languages,1
+o information extraction,1
+o text,1
+graph theory,1
+o computer vision,1
+o deep learning,1
+o text mining,1
+o neural networks,1
+o machine learning,1
+o image processing,1
+use of relevant open source tools,1
+strong theoretical background with practical experience in,1
+sota llm,1
+minio s3,1
+lstm-cnn,1
+pymorphy,1
+vit,1
+nvidia triton inference serve,1
+trust and safety,1
+plugins,1
+information extraction,1
+text classification,1
+с#,1
+rate-limiter,1
+orchestration systems,1
+service discovery,1
+lxc,1
+leetcode-medium,1
+dast,1
+capable of communicating aspects of tungsten automation research to clients within and outside of the company,1
+good computer science skills,1
+ml-pipeline,1
+customer journey management,1
+or simulated data,1
+extremely strong background in machine learning and statistics,1
+data structures,1
+o artificial intelligence,1
+including,1
+o algorithms and data structures,1
+image classification,1
+very good communication skills,1
+o at least two high-level programming languages,1
+fasttext,1
+evaluation of algorithm effectiveness using real and,1
+o natural language processing,1
+matplotlib etc,1
+or more of the following areas,1
+faster r-cnn,1
+pymorphy2,1
+natasha,1
+word2vec,1
+yolov5,1
+r-cnn,1
+falcon,1
+spark sql,1
+datalake,1
+datalake house,1
+cdc,1
+data mesh,1
+dbeaver,1
+devsecops,1
+ms devops,1
+pharma,1
+llmops,1
+llamaindex,1
+ml phyton,1
+tesseract,1
+easyocr,1
+datasphere,1
+nist,1
+sca,1
+dwh clickhouse,1
+brainstorming,1
+als,1
+jupyter hub,1
+knowledge sharing,1
+adtech,1
+scikit-image,1
+fast r-cnn,1
+kitti,1
+waymo,1
+blockchain,1
+crypto,1
+waf,1
+планирование,1
+delivery,1
+.net framework,1
+teamleading,1
+разработка по,1
+net,1
+prometeus,1
+access,1
+compass,1
+advanced,1
+issue trackers,1
+causal inference,1
+anchor,1
+uplift modeling,1
+q1,1
+витрины данных,1
+написание скриптов,1
+way4,1
+аналитика больших массивов данных,1
+теория вероятностей,1
+soft,1
+hard,1
+автоматизация процессов,1
+выявление аномалий,1
+ab-driven-development,1
+xlnet,1
+ml-модели,1
+научная деятельность,1
+unix-style,1
+научные исследования,1
+ability to adapt quickly to new technologies and processes,1
+and troubleshooting linux servers,1
+maintaining,1
+hands-on experience managing kubernetes clusters in various environments,1
+interest or passion for the intersection of technology and medicine,1
+strong interpersonal and communication skills to effectively collaborate with cross-functional teams,1
+software development or devops,1
+pcd,1
+open3d,1
+pcl,1
+cvat,1
+label studio,1
+lm,1
+container security,1
+systemctl,1
+ide,1
+ast,1
+presale,1
+application security,1
+asvs,1
+cwe top,1
+demo,1
+vcs,1
+appsecplatform,1
+sbom,1
+нейросети,1
+pointcloud,1
+с++,1
+u-net,1
+multisig wallet security,1
+setting up ci,1
+tools and technologies,1
+detecting,1
+experience in networks,1
+minimum of,1
+remote access,1
+proficiency in configuring,1
+years in a technical role,1
+firewalling,1
+data platform,1
+and responding to anomalies,1
+assessing and mitigating risks associated with managing user funds,1
+containerization and orchestration,1
+knowledge of security standards,1
+peer review,1
+swc registry,1
+openzeppelin best practices,1
+py,1
+graphx,1
+service monitoring and security,1
+logging,1
+elastic stack,1
+managing access control and implementing zonal security for critical services,1
+risk analysis and safeguarding user funds,1
+reviewing audit findings and helping implement necessary security improvements,1
+smart contract audit participation,1
+monitoring and alerting systems,1
+ml applications for detecting suspicious operations,1
+monitoring the services that work with our smart contracts,1
+experience with fireblocks or similar treasury management platforms,1
+blockchain security expertise,1
+next best action,1
+многозадачность,1
+скоринговая карта,1
+● теория вероятности,1
+● fintech,1
+● machine learning,1
+reentrancy,1
+cd pipelines with security checks,1
+owasp,1
+protecting services and data from attacks and failures,1
+security breaches,1
+deep understanding of blockchain-specific vulnerabilities,1
+security integration,1
+financial risk management,1
+collaborating with third-party auditors during the smart contract audit process,1
+monitoring sudden price drops or market disruptions in token-related assets and automating responses to events,1
+"jupyterhub, airflow, spark, kubernetes",1
+openmetadata,1
+ecom,1
+deepfm,1
+apache,1
+redash,1
+dagster,1
+scikit learn,1
+nebula,1
+recision,1
+f1,1
+accuracy,1
+recall,1
+time series,1
+drivendata,1
+oracle bi,1
+lifetime value,1
+flask framework,1
+pymystem,1
+pipeline,1
+прогнозирование продаж,1
+pre-intermediate,1
+demand planning,1
+upromo,1
+bmi,1
+ms office,1
+zeppelin,1
+● прикладная статистика,1
+marketplace,1
+vertica sql,1
+e-com,1
+"oc linux (rhel, centos",1
+инженерные системы,1
+водоснабжение и канализация,1
+техническая эксплуатация,1
+aermec,1
+системы тепло - и холодоснабжения,1
+техническое обслуживание,1
+аварийно-восстановительные работы,1
+autocad,1
+эксплуатация,1
+code llm,1
+research and development,1
+research,1
+rec sys,1
+push,1
+маркетинговый анализ,1
+email,1
+поиск,1
+llama,1
+yandexcloud,1
+positional encoding,1
+gpt-3,1
+data warehousing,1
+визуализация данных,1
+tableau desktop specialist,1
+microsoft certified data analyst,1
+sast,1
+owasp top,1
+sarif,1
+folium,1
+системы канализации и водоснабжения,1
+vts,1
+системы вентиляции и кондиционирования,1
+rust,1
+dataset,1
+nlp4code,1
+llm4code,1
+deep learning computer vision,1
+kalman filter,1
+tracking,1
+radar,1
+camera,1
+dds,1
+sensor fusion,1
+multi-armed bandit,1
+c ds,1
+raw sql,1
+experiment tracking,1
+моделирование данных,1
+sql alchemy,1
+unix os,1
+dbt,1
+clickstream,1
+feature store online,1
+bentoml,1
+seldon core,1
+werf,1
+c data science,1
+time-to-data,1
+rps,1
+diffusers,1
+awk,1
+gbdt,1
+grep,1
+cut,1
+beautifulsoup,1
+gradio,1
+parsel,1
+openai,1
+requests,1
+websocket,1
+dev,1
+opentelemetry,1
+hashicorp vault,1
+vm,1
+nodejs,1
+apache ranger,1
+next best offer,1
+reactjs,1
+web servers,1
+dotnet core,1
+http,1
+clip,1
+boosters,1
+pro,1
+collection,1
+мфо,1
+логистическая регрессия,1
+data-engineer,1
+no-code automl,1
+client support,1
+orm,1
+turbo,1
+llama-index,1
+chromadb,1
+selenium,1
+sft lora,1
+stm32,1
+altium designer,1
+цифровая электроника,1
+аналоговая электроника,1
+микроконтроллеры,1
+esp32,1
+firmware,1
+httpx,1
+playwright,1
+gpt3,1
+web scraping,1
+openpyxl,1
+smbclient,1
+visiology,1
+locust,1
+sdet,1
+обработка естественного языка (nlp),1
+rubert,1
+работа с большими данными,1
+оптимизация и развертывание моделей машинного обучения,1
+doker,1
+high-load,1
+b2b,1
+posgresql,1
+langgraph,1
+построение скоринговых моделей,1
+ретро-тестирование,1
+риск-аналитик,1
+розничные риски,1
+риск-метрики,1
+cash-flow,1
+nordic nrf,1
+graphql,1
+leetcode medium,1
+ит,1
+web api,1
+virtualenv,1
+mediascope,1
+ml operations,1
+jupiter,1
+a llm,1
+project management,1
+qlik sense,1
+google big query,1
+облачные технологии,1
+кэширование и хранение временных данных,1
+etl-процессы,1
+deeppavlov,1
+построение хранилищ данных,1
+dwh lead,1
+модельный риск,1
+deployment,1
+tcp/ip,1
+statefulset,1
+l7,1
+job,1
+cronjob,1
+l4,1
+микросервисная архитектура,1
+real-time ml based,1
+al,1
+webservices,1
+xml,1
+storybook,1
+google cloud platform ml,1
+multi-armed bandits,1
+ab tests,1
+ray,1
+datahub,1
+flink sql,1
+apache flink,1
+hopsworks,1
+sdk,1
+tecton,1
+kafka streams,1
+safe,1
+продуктовые метрики,1
+miro,1
+mdm,1
+исследовательский анализ данных,1
+yc dataproc,1
+dns,1
+cloudera,1
+ntp,1
+dhcp,1
+data driven,1
+enterprise integration patterns,1
+relation extraction,1
+deep machine learning,1
+cosine similarity,1
+scikit,1
+sota opensource,1
+dbscan,1
+oracle pl/sql,1
+oracle pl,1
+ggplot,1
+regexp,1
+pytorch geometric,1
+software,1
+проведение презентаций,1
+управление проектами,1
+грамотная речь,1
+pmbok,1
+управление ресурсами,1
+itil,1
+bitrix,1
+управление рисками,1
+youtrack,1
+itsm,1
+ms project,1
+teradata,1
+mission critical,1
