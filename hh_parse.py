@@ -1,7 +1,6 @@
 import requests
 from collections import Counter
 import re
-import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 import json
@@ -9,6 +8,7 @@ import os
 import time
 import random
 from constants import *
+from vacancies_analyze import get_salary_analytics
 
 def random_delay(min_seconds=15, max_seconds=30):
     """
@@ -49,7 +49,7 @@ def load_vacancies_from_json(vacancies_file=vacancies_file):
         print(f"Файл '{vacancies_file}' не найден.")
         return None
 
-def get_vacancies_by_query(search_query=search_query, area="1", per_page=100):
+def get_vacancies_by_query(search_query=search_query, area=["1"], per_page=100):
     """
     Получает список вакансий из API HH по специализации.
 
@@ -135,76 +135,6 @@ def extract_strong_blocks(description):
     strong_blocks = [tag.get_text(strip=True) for tag in soup.find_all("strong")]
 
     return strong_blocks    
-
-# def extract_requirements_from_description(description):
-#     """
-#     Извлекает текст требований из полного описания вакансии.
-
-#     :param description: Полное описание вакансии (HTML).
-#     :return: Словарь с требованиями.
-#     """
-#     requirements = {"Требования": "", "Будет плюсом": ""}
-#     if not description:
-#         return requirements
-
-#     # Парсим текст на блоки <strong> и <ul>
-#     strong_blocks = extract_strong_blocks(description)
-#     for block in strong_blocks:
-#         if "Требования" in block:
-#             requirements["Требования"] = extract_list_items(description, block)
-#         elif "Будет плюсом" in block:
-#             requirements["Будет плюсом"] = extract_list_items(description, block)
-
-#     return requirements
-
-# def extract_list_items(description, header):
-#     """
-#     Извлекает список <li> элементов, следующих за заголовком.
-
-#     :param description: Полное описание вакансии (HTML).
-#     :param header: Заголовок блока.
-#     :return: Текст всех элементов списка, разделённых запятыми.
-#     """
-#     match = re.search(rf"<strong>{header}</strong>.*?<ul>(.*?)</ul>", description, re.DOTALL)
-#     if not match:
-#         return ""
-#     list_items = re.findall(r"<li>(.*?)</li>", match.group(1), re.DOTALL)
-#     return ", ".join(item.strip() for item in list_items)
-
-# def extract_keywords(requirements):
-#     """
-#     Извлекает ключевые слова из списка требований.
-
-#     :param requirements: Список требований.
-#     :return: Список ключевых слов.
-#     """
-#     keywords = []
-#     for req in requirements:
-#         keywords.extend(re.findall(r"\b[A-Za-z]+\b", req))
-#     return keywords
-
-# def count_requirements(requirements):
-#     """
-#     Подсчитывает уникальные ключевые слова в требованиях.
-
-#     :param requirements: Список ключевых слов.
-#     :return: Словарь {ключевое слово: количество}.
-#     """
-#     return dict(Counter(requirements))
-
-
-# def collect_vacancies(specializations):
-
-#     all_vacancies = []
-
-#     for specialization, _ in specializations.items():
-#         print(f"Сбор данных для специализации: {specialization}")
-#         vacancies = get_vacancies_by_category(specialization)
-        
-#         all_vacancies.extend(vacancies)
-#         print(f"Собрано {len(vacancies)} вакансий. Всего {len(all_vacancies)}")
-
-#     return save_vacancies_to_json(all_vacancies)
 
 def load_or_initialize_descriptions(file_descriptions):
     """
@@ -356,10 +286,13 @@ def get_terms_from_description(description, bad_descriptions):
     return list(set(terms))
 
 
-def main():
-    
+def get_hh_analytics(query_string='ML',role='developer',areas=['1']):
+    """
+    возвращает 10 самых популярных требований и сводку по з/п
+    """
+
     # парсим список вакансий из поиска по запросу
-    vacancies = get_vacancies_by_query()
+    vacancies = get_vacancies_by_query(search_query=query_string, area=areas, per_page=100)
     # vacancies = load_vacancies_from_json()
     num_vacancies = len(vacancies)
     print('Найдено вакансиЙ:', num_vacancies)
@@ -399,6 +332,16 @@ def main():
     df.to_csv(ML_key_skills_file, index=False)
 
     print(f"Данные успешно сохранены в файл {ML_key_skills_file}.")
+
+    # Получаем сводку по з/п
+
+    average_salary_by_role = get_salary_analytics(vacancies)
+
+    return df['Требования'].head(10).tolist(), average_salary_by_role
+
+
+def main():
+    get_hh_analytics()
 
 if __name__ == "__main__":
     main()
