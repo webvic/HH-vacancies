@@ -1,1842 +1,452 @@
 Требования,Количество,Процент
-python,373,69.5
-ml,234,43.6
-sql,196,36.5
-pytorch,169,31.5
-llm,133,24.8
-docker,126,23.5
-nlp,108,20.1
-git,98,18.2
-pandas,96,17.9
-tensorflow,94,17.5
-numpy,82,15.3
-spark,74,13.8
-hadoop,72,13.4
-linux,70,13.0
-dl,64,11.9
-ai,64,11.9
-airflow,59,11.0
-kubernetes,59,11.0
-postgresql,58,10.8
-machine learning,57,10.6
-ci,54,10.1
-cd,53,9.9
-data science,52,9.7
-mlflow,45,8.4
-api,42,7.8
-deep learning,41,7.6
-scikit-learn,40,7.4
-java,38,7.1
-computer vision,38,7.1
-kafka,38,7.1
-big data,37,6.9
-mlops,37,6.9
-bash,37,6.9
-cv,37,6.9
-ds,35,6.5
-a,34,6.3
-rag,34,6.3
-sklearn,34,6.3
-b,33,6.1
-opencv,32,6.0
-transformers,32,6.0
-c,30,5.6
-fastapi,30,5.6
-langchain,30,5.6
-devops,30,5.6
-hive,29,5.4
-catboost,28,5.2
-pyspark,28,5.2
-production,26,4.8
-машинное обучение,25,4.7
-data scientist,25,4.7
-clickhouse,25,4.7
-gpt,24,4.5
-r,24,4.5
-bert,23,4.3
-jira,22,4.1
-keras,21,3.9
-it,21,3.9
-xgboost,20,3.7
-математическая статистика,20,3.7
-matplotlib,19,3.5
-gitlab,19,3.5
-javascript,19,3.5
-scipy,19,3.5
-grafana,19,3.5
-nosql,18,3.4
-rabbitmq,18,3.4
-recsys,18,3.4
-k8s,18,3.4
-etl,18,3.4
-rest api,17,3.2
-lightgbm,17,3.2
-английский язык,15,2.8
-flask,15,2.8
-jax,15,2.8
-agile,14,2.6
-ner,14,2.6
-apache airflow,14,2.6
-hdfs,14,2.6
-scrum,14,2.6
-jenkins,14,2.6
-chatgpt,14,2.6
-etc,14,2.6
-rest,14,2.6
-анализ данных,14,2.6
-dvc,14,2.6
-prometheus,14,2.6
-nltk,13,2.4
-prompt engineering,13,2.4
-kaggle,13,2.4
-github,13,2.4
-confluence,13,2.4
-ms sql,13,2.4
-c++,12,2.2
-qa,12,2.2
-excel,12,2.2
-bi,12,2.2
-рекомендательные системы,12,2.2
-gpu,12,2.2
-amp,12,2.2
-time series analysis,12,2.2
-postgres,11,2.0
-apache spark,11,2.0
-go,11,2.0
-ai-first,11,2.0
-algorithms,11,2.0
-ml-антифрод,11,2.0
-предиктивные технологии,11,2.0
-речевые технологии,11,2.0
-компьютерное зрение,11,2.0
-tensorrt,11,2.0
-redis,11,2.0
-gigachat,11,2.0
-mysql,11,2.0
-speech,11,2.0
-диалоговые системы,11,2.0
-data scientists,11,2.0
-backend,11,2.0
-rnn,11,2.0
-управление командой,11,2.0
-middle,10,1.9
-react,10,1.9
-классическое машинное обучение,10,1.9
-scala,10,1.9
-s3,10,1.9
-typescript,10,1.9
-mongodb,10,1.9
-impala,10,1.9
-elasticsearch,10,1.9
-seaborn,10,1.9
-power bi,10,1.9
-figma,10,1.9
-ci/cd,10,1.9
-ui,10,1.9
-mvp,10,1.9
-ux,10,1.9
-kubeflow,9,1.7
-web,9,1.7
-openshift,9,1.7
-bitbucket,9,1.7
-cuda,9,1.7
-data analysis,9,1.7
-sota,9,1.7
-torch,9,1.7
-gpt-like,9,1.7
-dwh,9,1.7
-c#,9,1.7
-onnx,9,1.7
-yandex cloud,9,1.7
-oracle,9,1.7
-json,8,1.5
-azure,8,1.5
-аналитическое мышление,8,1.5
-frontend,8,1.5
-алгоритмы и структуры данных,8,1.5
-yolo,8,1.5
-gitlab ci,8,1.5
-quot,8,1.5
-llama,8,1.5
-restful api,8,1.5
-ocr,8,1.5
-xml,8,1.5
-llamaindex,8,1.5
-3d,8,1.5
-uplift,8,1.5
-transformer,8,1.5
-greenplum,8,1.5
-golang,7,1.3
-математическое моделирование,7,1.3
-zabbix,7,1.3
-aiohttp,7,1.3
-open-source,7,1.3
-lora,7,1.3
-a/b тесты,7,1.3
-ansible,7,1.3
-nginx,7,1.3
-pd,7,1.3
-aws,7,1.3
-genai,7,1.3
-lstm,7,1.3
-hugging face,7,1.3
-elk,6,1.1
-ltv,6,1.1
-cnn,6,1.1
-state-of-the-art,6,1.1
-cassandra,6,1.1
-prod,6,1.1
-pytest,6,1.1
-kanban,6,1.1
-recommender systems,6,1.1
-tcp,6,1.1
-apache kafka,6,1.1
-разработка поисковых технологий,6,1.1
-sft,6,1.1
-fine-tuning,6,1.1
-qdrant,6,1.1
-ead,6,1.1
-lgd,6,1.1
-asyncio,6,1.1
-rnd,6,1.1
-reinforcement learning,6,1.1
-resnet,6,1.1
-faiss,6,1.1
-openai,6,1.1
-postman,6,1.1
-ros,6,1.1
-natural language processing,6,1.1
-uml,6,1.1
-rl,6,1.1
-senior,6,1.1
-bert-like,6,1.1
-vllm,6,1.1
-centos,5,0.9
-atlassian confluence,5,0.9
-plotly,5,0.9
-rhel,5,0.9
-unit,5,0.9
-prophet,5,0.9
-nexus,5,0.9
-de,5,0.9
-telegram,5,0.9
-chroma,5,0.9
-cpu,5,0.9
-swagger,5,0.9
-gcp,5,0.9
-html,5,0.9
-d,5,0.9
-computer science,5,0.9
-c/c++,5,0.9
-solid,5,0.9
-feature engineering,5,0.9
-bpmn,5,0.9
-js,5,0.9
-eda,5,0.9
-gil,5,0.9
-async,5,0.9
-data,5,0.9
-jupyter,5,0.9
-b2b,5,0.9
-jupyterhub,5,0.9
-tf-idf,5,0.9
-нейронные сети,5,0.9
-code review,5,0.9
-data engineer,5,0.9
-http,4,0.7
-streamlit,4,0.7
-android,4,0.7
-text classification,4,0.7
-django framework,4,0.7
-large language models,4,0.7
-clearml,4,0.7
-product owner,4,0.7
-gigachain,4,0.7
-аналитический склад ума,4,0.7
-milvus,4,0.7
-математический анализ,4,0.7
-ms excel,4,0.7
-fintech,4,0.7
-ms sql server,4,0.7
-digital,4,0.7
-b2c,4,0.7
-b2,4,0.7
-blockchain,4,0.7
-join,4,0.7
-rust,4,0.7
-статистический анализ,4,0.7
-php,4,0.7
-e-commerce,4,0.7
-gan,4,0.7
-ctr,4,0.7
-terraform,4,0.7
-ms office,4,0.7
-erp,4,0.7
-fine-tuning llm,4,0.7
-statsmodels,4,0.7
-presto,4,0.7
-neo4j,4,0.7
-data engineers,4,0.7
-automl,4,0.7
-selenium,4,0.7
-code-review,4,0.7
-retrieval-augmented generation,4,0.7
-unix,4,0.7
-kotlin,4,0.7
-bigdata,4,0.7
-websocket,4,0.7
-teamcity,4,0.7
-full-stack,4,0.7
-project management,4,0.7
-mapreduce,4,0.7
-базы данных,4,0.7
-grpc,4,0.7
-spacy,4,0.7
-t5,3,0.6
-polars,3,0.6
-argo workflows,3,0.6
-sqlite,3,0.6
-ip,3,0.6
-infrastructure as code,3,0.6
-olap,3,0.6
-cad,3,0.6
-embedding,3,0.6
-визуализация данных,3,0.6
-offline,3,0.6
-vba,3,0.6
-llama2,3,0.6
-atlassian jira,3,0.6
-llmops,3,0.6
-custdev,3,0.6
-управление проектами,3,0.6
-oc linux,3,0.6
-ml flow,3,0.6
-web api,3,0.6
-mathematics,3,0.6
-bamboo,3,0.6
-adas,3,0.6
-playwright,3,0.6
-ubuntu,3,0.6
-collection,3,0.6
-c4,3,0.6
-programming languages,3,0.6
-midjourney,3,0.6
-jetson,3,0.6
-self-attention,3,0.6
-data mining,3,0.6
-написание текстов,3,0.6
-iot,3,0.6
-b1,3,0.6
-ssh,3,0.6
-mssql,3,0.6
-word,3,0.6
-forecasting,3,0.6
-vertica,3,0.6
-classification,3,0.6
-luigi,3,0.6
-powerpoint,3,0.6
-ооп,3,0.6
-лидерство,3,0.6
-vit,3,0.6
-angular,3,0.6
-vision,3,0.6
-аналитические исследования,3,0.6
-keycloak,3,0.6
-best practice,3,0.6
-anomaly detection,3,0.6
-data analysts,3,0.6
-triton,3,0.6
-graphql,3,0.6
-gensim,3,0.6
-django,3,0.6
-self-driving,3,0.6
-ssd,3,0.6
-horovod,3,0.6
-plp,3,0.6
-dask,3,0.6
-mq,3,0.6
-flutter,3,0.6
-data engineering,3,0.6
-beautifulsoup,3,0.6
-sqlalchemy,3,0.6
-helm,3,0.6
-fasttext,3,0.6
-gradio,3,0.6
-tls,3,0.6
-intermediate,3,0.6
-cloud,3,0.6
-ros2,3,0.6
-ad-hoc,3,0.6
-vmware,3,0.6
-openapi,3,0.6
-openai api,3,0.6
-huggingface,3,0.6
-node.js,3,0.6
-multiprocessing,3,0.6
-cron,3,0.6
-up-to-date,3,0.6
-cmake,3,0.6
-pymorphy,3,0.6
-customer development,2,0.4
-keypoint detection,2,0.4
-pose estimation,2,0.4
-data quality,2,0.4
-recall,2,0.4
-strong theoretical background with practical experience in,2,0.4
-o information extraction,2,0.4
-o image processing,2,0.4
-o text,2,0.4
-data structures,2,0.4
-groovy,2,0.4
-работа с большим объемом информации,2,0.4
-po,2,0.4
-shapely,2,0.4
-geopandas,2,0.4
-o natural language processing,2,0.4
-use of relevant open source tools,2,0.4
-ai/ml,2,0.4
-fanuc,2,0.4
-o machine learning,2,0.4
-o deep learning,2,0.4
-o algorithms and data structures,2,0.4
-good computer science skills,2,0.4
-graph theory,2,0.4
-technical,2,0.4
-siemens,2,0.4
-abak,2,0.4
-computer,2,0.4
-modbus tcp,2,0.4
-citect,2,0.4
-wincc,2,0.4
-yaskawa,2,0.4
-platform,2,0.4
-machine,2,0.4
-artifactory,2,0.4
-data science analytical platform,2,0.4
-sdn,2,0.4
-sds,2,0.4
-bert4rec,2,0.4
-субд,2,0.4
-lua,2,0.4
-schneider electric,2,0.4
-t-flex cad,2,0.4
-soap api,2,0.4
-интерпретация данных,2,0.4
-аналитика продаж,2,0.4
-alpha,2,0.4
-abb,2,0.4
-embeddings,2,0.4
-highload,2,0.4
-kpi,2,0.4
-plugins,2,0.4
-ua,2,0.4
-system platform,2,0.4
-comau,2,0.4
-firebase,2,0.4
-wonderware,2,0.4
-codesys,2,0.4
-kuka,2,0.4
-indusoft,2,0.4
-opc da,2,0.4
-scada,2,0.4
-rtu,2,0.4
-autodesk autocad,2,0.4
-kawasaki,2,0.4
-автоматизированное тестирование,2,0.4
-information extraction,2,0.4
-python3,2,0.4
-omron,2,0.4
-atlassian bitbucket,2,0.4
-librosa,2,0.4
-tensorflow lite,2,0.4
-di,2,0.4
-phyton,2,0.4
-smm,2,0.4
-graphic design,2,0.4
-lidar,2,0.4
-sktime,2,0.4
-qwen,2,0.4
-plc prosoft regul,2,0.4
-web studio,2,0.4
-soft skills,2,0.4
-ml ops,2,0.4
-artificial intelligence,2,0.4
-ит-архитектура,2,0.4
-расстановка приоритетов,2,0.4
-udp,2,0.4
-gnss,2,0.4
-orange pi,2,0.4
-prompt,2,0.4
-desktop,2,0.4
-camunda,2,0.4
-wandb,2,0.4
-windows,2,0.4
-solidworks,2,0.4
-owen,2,0.4
-saas,2,0.4
-docker-compose,2,0.4
-nifi,2,0.4
-olap (online analytical processing),2,0.4
-sla,2,0.4
-ml и dl алгоритмы,2,0.4
-nlp-решения,2,0.4
-управление рисками,2,0.4
-llm-driven,2,0.4
-f1,2,0.4
-imu,2,0.4
-sas,2,0.4
-rlhf,2,0.4
-product management,2,0.4
-управление продуктом,2,0.4
-skforecast,2,0.4
-claude,2,0.4
-pycharm,2,0.4
-cte,2,0.4
-proxmox,2,0.4
-question answering,2,0.4
-deepfake,2,0.4
-pil,2,0.4
-networkx,2,0.4
-dns,2,0.4
-tts,2,0.4
-asr,2,0.4
-roadmap,2,0.4
-fmcg,2,0.4
-vk,2,0.4
-nix,2,0.4
-vbs,2,0.4
-troubleshooting,2,0.4
-маркетинговый анализ,2,0.4
-psycopg,2,0.4
-haproxy,2,0.4
-robot operating system,2,0.4
-kalman filter,2,0.4
-a/b-experiments,2,0.4
-neural nets,2,0.4
-prefect,2,0.4
-poc,2,0.4
-summarization,2,0.4
-pipeline,2,0.4
-spring,2,0.4
-ide,2,0.4
-ftp,2,0.4
-hashicorp vault,2,0.4
-x,2,0.4
-cuped,2,0.4
-machine learning engineer,2,0.4
-e-mail,2,0.4
-cloud-native,2,0.4
-few-shot,2,0.4
-zero-shot,2,0.4
-spark sql,2,0.4
-ollama,2,0.4
-bss,2,0.4
-neuro,2,0.4
-основы баз данных,2,0.4
-voximplant,2,0.4
-just ai,2,0.4
-nbo,2,0.4
-sms,2,0.4
-astra,2,0.4
-red os,2,0.4
-brd,2,0.4
-search ranking,2,0.4
-auto-encoders,2,0.4
-end2end,2,0.4
-gbdt,2,0.4
-dataset,2,0.4
-coursera,2,0.4
-promt,2,0.4
-yarn,2,0.4
-l4t,2,0.4
-mikrotik,2,0.4
-minio,2,0.4
-исследовательский анализ данных,2,0.4
-push,2,0.4
-первичная обработка изображений,2,0.4
-usability,2,0.4
-model serving,2,0.4
-variance reduction,2,0.4
-softline,2,0.4
-q1,2,0.4
-apache cassandra,2,0.4
-instance,2,0.4
-cvat,2,0.4
-falcon,2,0.4
-1c developer,2,0.4
-scikit,2,0.4
-1c analyst,2,0.4
-oracle pl/sql,2,0.4
-gitlab-ci,2,0.4
-neptune,2,0.4
-mobx,2,0.4
-1с программирование,2,0.4
-redux,2,0.4
-алгоритмы,2,0.4
-word2vec,2,0.4
-rtsp,2,0.4
-backlog,2,0.4
-upper intermediate,2,0.4
-aiogram,2,0.4
-vscode,2,0.4
-model predictive control,2,0.4
-css,2,0.4
-графические редакторы,2,0.4
-adobe photoshop,2,0.4
-внимательность,2,0.4
-обработка изображений,2,0.4
-pl,2,0.4
-pdf,2,0.4
-power point,2,0.4
-or more of the following areas,2,0.4
-protopie,2,0.4
-ui designer,2,0.4
-b2b продажи,2,0.4
-bitrix24,2,0.4
-yandex,2,0.4
-ml pipeline,2,0.4
-npu,2,0.4
-image classification,2,0.4
-supervised,2,0.4
-unsupervised,2,0.4
-yandexcloud,2,0.4
-rtb,2,0.4
-o text mining,2,0.4
-or simulated data,2,0.4
-ad hoc,2,0.4
-web3,2,0.4
-vpn,2,0.4
-1с,2,0.4
-opensource,2,0.4
-nvidia triton inference server,2,0.4
-trust and safety,2,0.4
-информационные технологии,2,0.4
-google,2,0.4
-cpm,2,0.4
-open source,2,0.4
-e,2,0.4
-posgresql,2,0.4
-machine translation,2,0.4
-tableau,2,0.4
-unittest,2,0.4
-stable diffusion,2,0.4
-google cloud,2,0.4
-accuracy,2,0.4
-boosters,2,0.4
-arcgis,2,0.4
-u-net,2,0.4
-дзз,2,0.4
-геоинформационные системы,2,0.4
-qgis,2,0.4
-stl,2,0.4
-nvidia,2,0.4
-boost,2,0.4
-системный анализ,2,0.4
-distibuted,2,0.4
-mask r-cnn,2,0.4
-natasha,2,0.4
-matlab,2,0.4
-gpt3,2,0.4
-o computer vision,2,0.4
-data analyst,2,0.4
-data lake,2,0.4
-o neural networks,2,0.4
-evaluation of algorithm effectiveness using real and,2,0.4
-dashboards,2,0.4
-slam,2,0.4
-svd,2,0.4
-qa automation engineer,2,0.4
-motion prediction,2,0.4
-ит,2,0.4
-gis,2,0.4
-банки,2,0.4
-скоринг,2,0.4
-продуктовые метрики,2,0.4
-geopy,2,0.4
-wordpress,2,0.4
-peft,2,0.4
-прогнозирование,2,0.4
-kiss,2,0.4
-cicd,2,0.4
-валидация моделей,2,0.4
-dry,2,0.4
-including,2,0.4
-nlu,2,0.4
-optuna,2,0.4
-or-tools,2,0.4
-superset,2,0.4
-организаторские навыки,2,0.4
-trello,2,0.4
-o artificial intelligence,2,0.4
-mitsubishi,2,0.4
-pgsql,2,0.4
-intouch,2,0.4
-apache hive,2,0.4
-aveva,2,0.4
-perplexity,2,0.4
-insomnia,2,0.4
-online,2,0.4
-springboot,2,0.4
-dash,2,0.4
-requests,2,0.4
-стратегическое мышление,2,0.4
-faster r-cnn,2,0.4
-sql alchemy,1,0.2
-pivot,1,0.2
-dax,1,0.2
-query,1,0.2
-sql server analysis services,1,0.2
-websockets,1,0.2
-sytech,1,0.2
-technology,1,0.2
-development,1,0.2
-barebone,1,0.2
-data pipelines,1,0.2
-bigquery,1,0.2
-cloudera certified professional,1,0.2
-google professional data engineer,1,0.2
-redshift,1,0.2
-aws certified data analytics,1,0.2
-data architects,1,0.2
-aws sagemaker,1,0.2
-azure ml,1,0.2
-ggplot,1,0.2
-google cloud platform ml,1,0.2
-e2e,1,0.2
-yandex cloud platform,1,0.2
-sota reinforcement learning or,1,0.2
-c kubeflow,1,0.2
-unix-системы,1,0.2
-ml engineering,1,0.2
-r&d,1,0.2
-техническая поддержка пользователей,1,0.2
-постановка целей,1,0.2
-vertica sql,1,0.2
-openmetadata,1,0.2
-retail,1,0.2
-marketplace,1,0.2
-ecom,1,0.2
-высокие коммуникативные навыки,1,0.2
-hard ml,1,0.2
-fast-fashion,1,0.2
-devsecops,1,0.2
-auto-sklearn,1,0.2
-nbeats,1,0.2
-optaplanner,1,0.2
-shap,1,0.2
-tsfresh,1,0.2
-pymoo,1,0.2
-featuretools,1,0.2
-lstm-cnn,1,0.2
-h2o,1,0.2
-minio s3,1,0.2
-uplift modeling,1,0.2
-e-com,1,0.2
-reinforcement learning engineer,1,0.2
-inverse reinforcement learning,1,0.2
-imitation learning,1,0.2
-ros1,1,0.2
-управление инновациями,1,0.2
-мотивация сотрудников,1,0.2
-управление бизнес процессами,1,0.2
-управление ресурсами,1,0.2
-scikit-image,1,0.2
-r-cnn,1,0.2
-fast r-cnn,1,0.2
-yolov5,1,0.2
-pymorphy2,1,0.2
-jupyter hub,1,0.2
-web scraping,1,0.2
-sft lora,1,0.2
-turbo,1,0.2
-chromadb,1,0.2
-parsel,1,0.2
-lightautoml,1,0.2
-soapui,1,0.2
-qa engineer,1,0.2
-sh,1,0.2
-crypto,1,0.2
-recision,1,0.2
-multiple view geometry,1,0.2
-gtsam,1,0.2
-g2o,1,0.2
-few-shot learning,1,0.2
-reasoning,1,0.2
-hf tgi,1,0.2
-hpc,1,0.2
-mllm,1,0.2
-llama-index,1,0.2
-httpx,1,0.2
-orm,1,0.2
-fast api,1,0.2
-batch,1,0.2
-streaming,1,0.2
-mle,1,0.2
-dag,1,0.2
-mef,1,0.2
-enterprise,1,0.2
-legaltech,1,0.2
-high-load,1,0.2
-mavros,1,0.2
-mavlink,1,0.2
-ardupilot,1,0.2
-ceres,1,0.2
-brainstorming,1,0.2
-als,1,0.2
-knowledge sharing,1,0.2
-scrum kanban,1,0.2
-sinaraml,1,0.2
-copmuter vision,1,0.2
-apache ozone,1,0.2
-software system,1,0.2
-hardware,1,0.2
-disks,1,0.2
-vmware esxi,1,0.2
-fullhd,1,0.2
-разработка платформы,1,0.2
-vlm,1,0.2
-feature store,1,0.2
-кредитные риски,1,0.2
-скоринговые модели,1,0.2
-data lakehouse,1,0.2
-data warehouse,1,0.2
-decentralized applications,1,0.2
-ethereum virtual machine,1,0.2
-ethereum,1,0.2
-inference llm,1,0.2
-mvp ai,1,0.2
-llm ops,1,0.2
-llm gigachat,1,0.2
-onprem,1,0.2
-обучение,1,0.2
-обучение и развитие,1,0.2
-пимл,1,0.2
-lightning,1,0.2
-модельный риск,1,0.2
-jupyter lab,1,0.2
-kerberos,1,0.2
-ml platform,1,0.2
-f,1,0.2
-mops,1,0.2
-active directory,1,0.2
-windows servers,1,0.2
-pam,1,0.2
-ram,1,0.2
-cloud native,1,0.2
-rusal dsml,1,0.2
-data sciene and machine learning,1,0.2
-engineer,1,0.2
-sre,1,0.2
-dataflow,1,0.2
-ведение переговоров,1,0.2
-api gateway,1,0.2
-sql server,1,0.2
-edtech,1,0.2
-model services,1,0.2
-experiment management,1,0.2
-1c: управление холдингом,1,0.2
-1с: erp,1,0.2
-after effects,1,0.2
-ab-driven-development,1,0.2
-прямые продажи,1,0.2
-cms 1c-bitrix,1,0.2
-подготовка коммерческих предложений,1,0.2
-управление дебиторской задолженностью,1,0.2
-кросс-продажи,1,0.2
-сопровождение клиентов,1,0.2
-согласование договоров,1,0.2
-заключение договоров,1,0.2
-составление договоров,1,0.2
-native,1,0.2
-oracle pl,1,0.2
-time series forecasting,1,0.2
-lvm,1,0.2
-finetuning llm,1,0.2
-transformates,1,0.2
-code generation,1,0.2
-cot promting,1,0.2
-math problem solving,1,0.2
-text-to-code,1,0.2
-test case,1,0.2
-amazon,1,0.2
-on-premise,1,0.2
-dsml,1,0.2
-data scinetist,1,0.2
-ml pipelines,1,0.2
-com,1,0.2
-ability to apply scientific models and knowledge to real-world problems,1,0.2
-capable of communicating aspects of tungsten automation research to clients within and outside of the company,1,0.2
-o at least two high-level programming languages,1,0.2
-very good communication skills,1,0.2
-english b1-b2 level,1,0.2
-are a plus,1,0.2
-development environments,1,0.2
-gnu toolchains,1,0.2
-knowledge and experience with nlp and machine learning libraries,1,0.2
-next best offer,1,0.2
-detectron2,1,0.2
-ultralytics,1,0.2
-labelstudio,1,0.2
-mmdetection,1,0.2
-ух,1,0.2
-openvino,1,0.2
-nlp c,1,0.2
-diffusers,1,0.2
-цифровые сервисы,1,0.2
-.net core,1,0.2
-yandex api llm,1,0.2
-end-to-end,1,0.2
-voice2text,1,0.2
-nl,1,0.2
-jupiterhub,1,0.2
-leetcode medium,1,0.2
-python is required,1,0.2
-development tools,1,0.2
-marketing,1,0.2
-marketing mix modeling,1,0.2
-mmm,1,0.2
-extremely strong background in machine learning and statistics,1,0.2
-research,1,0.2
-llm4code,1,0.2
-mobile,1,0.2
-ориентация на результат,1,0.2
-tone of voice,1,0.2
-chain-of-thought prompting,1,0.2
-botsellerai,1,0.2
-sglang,1,0.2
-cpp,1,0.2
-nvidia triton inference serve,1,0.2
-data processing,1,0.2
-коммуникативные навыки,1,0.2
-лингвистика,1,0.2
-работа в условиях многозадачности,1,0.2
-преобразование данных,1,0.2
-желание обучаться,1,0.2
-prompt tuning,1,0.2
-preprocessing,1,0.2
-docker swarm,1,0.2
-reactjs,1,0.2
-graphite,1,0.2
-parameter-efficient fine-tuning,1,0.2
-audio llm,1,0.2
-tensor parallelism,1,0.2
-model,1,0.2
-auto layout,1,0.2
-искусственный интеллект,1,0.2
-ml etc,1,0.2
-openstack,1,0.2
-iaas,1,0.2
-code llm,1,0.2
-research and development,1,0.2
-nlp4code,1,0.2
-okko,1,0.2
-ir,1,0.2
-selection,1,0.2
-client support,1,0.2
-no-code automl,1,0.2
-s,1,0.2
-advanced,1,0.2
-dwh clickhouse,1,0.2
-nopandas,1,0.2
-clustering,1,0.2
-sentence compression,1,0.2
-semantic search,1,0.2
-simplification,1,0.2
-abst,1,0.2
-ext,1,0.2
-crf,1,0.2
-vowpalwabbit,1,0.2
-bart,1,0.2
-skip-gram,1,0.2
-kenlm,1,0.2
-fsts,1,0.2
-dependency parsing,1,0.2
-pruning,1,0.2
-mm-llm,1,0.2
-vae,1,0.2
-nebula,1,0.2
-graphx,1,0.2
-py,1,0.2
-руководство коллективом,1,0.2
-customer journey management,1,0.2
-ml-pipeline,1,0.2
-инновации,1,0.2
-опыт работы с технологиями больших данных,1,0.2
-yandexgpt,1,0.2
-промпт-инженер,1,0.2
-стратегия развития архитектуры,1,0.2
-ml-ops,1,0.2
-task-tracking,1,0.2
-trouble shooting,1,0.2
-waterfall,1,0.2
-mercurial,1,0.2
-tesseract,1,0.2
-easyocr,1,0.2
-datasphere,1,0.2
-cbow,1,0.2
-pyonmttok,1,0.2
-hmm,1,0.2
-bat,1,0.2
-endtoend,1,0.2
-rdp,1,0.2
-uat,1,0.2
-pytotch,1,0.2
-shell,1,0.2
-elk stack,1,0.2
-data version control,1,0.2
-kibana,1,0.2
-logstash,1,0.2
-решение проблем,1,0.2
-проактивность,1,0.2
-инициативность,1,0.2
-принятие решений,1,0.2
-нейросети,1,0.2
-технические навыки,1,0.2
-проектирование пользовательских интерфейсов,1,0.2
-outdoor,1,0.2
-indoor,1,0.2
-uart,1,0.2
-nvidia jetson,1,0.2
-2d,1,0.2
-vesc,1,0.2
-nav2,1,0.2
-can,1,0.2
-i2c,1,0.2
-real time bidding,1,0.2
-nlp ds,1,0.2
-test complete,1,0.2
-hp uft,1,0.2
-tsm,1,0.2
-svn,1,0.2
-аналитические системы,1,0.2
-reward,1,0.2
-ppo,1,0.2
-португальский язык,1,0.2
-сбор требований,1,0.2
-бизнес-анализ,1,0.2
-формирование аналитической отчетности,1,0.2
-sigma,1,0.2
-e5,1,0.2
-qa automation engineer js,1,0.2
-ps,1,0.2
-ibm rr,1,0.2
-hp alm,1,0.2
-разработка нового продукта,1,0.2
-разработка технических заданий,1,0.2
-product development,1,0.2
-o at least two high-level programming language,1,0.2
-icaap,1,0.2
-frm,1,0.2
-prm,1,0.2
-basel,1,0.2
-cfa,1,0.2
-sql-api,1,0.2
-регрессионный анализ,1,0.2
-jupiter,1,0.2
-high available,1,0.2
-architect,1,0.2
-cs,1,0.2
-seq2seq,1,0.2
-google big query,1,0.2
-crowdsource,1,0.2
-product marketing,1,0.2
-excellent communication skills with a good command of english,1,0.2
-rxjs,1,0.2
-html5,1,0.2
-vue,1,0.2
-mediascope,1,0.2
-virtualenv,1,0.2
-da,1,0.2
-text-to-speech,1,0.2
-vk cloud,1,0.2
-automatic speech recognition,1,0.2
-airflow dags,1,0.2
-feature-store,1,0.2
-both in speaking and writing,1,0.2
-a doctoral degree in computer science,1,0.2
-graduate degree in a related discipline is required,1,0.2
-strong foundation in mathematics and probability theory,1,0.2
-smbclient,1,0.2
-openpyxl,1,0.2
-gpt-4,1,0.2
-gpt-3,1,0.2
-языковые модели,1,0.2
-positional encoding,1,0.2
-теория вероятности,1,0.2
-прикладная статистика,1,0.2
-риск менеджмент,1,0.2
-риск аналитика,1,0.2
-ml-модели,1,0.2
-css3,1,0.2
-scss,1,0.2
-locust,1,0.2
-or a related discipline is strongly preferred,1,0.2
-excellent analytical and critical thinking skills,1,0.2
-t-sql developer,1,0.2
-corenlp,1,0.2
-работа в команде,1,0.2
-международное частное право,1,0.2
-корпоративное право,1,0.2
-гражданское право,1,0.2
-corporate law,1,0.2
-legal writing,1,0.2
-fluent english,1,0.2
-corporate governance,1,0.2
-demand planning,1,0.2
-pre-intermediate,1,0.2
-bmi,1,0.2
-прогнозирование продаж,1,0.2
-upromo,1,0.2
-visiology,1,0.2
-biases,1,0.2
-mse,1,0.2
-evaluation metrics,1,0.2
-jmeter,1,0.2
-mape,1,0.2
-mae,1,0.2
-precision,1,0.2
-f1-score,1,0.2
-weights,1,0.2
-trino,1,0.2
-dsml пакеты,1,0.2
-scilab,1,0.2
-mpi,1,0.2
-openmp,1,0.2
-winforms c,1,0.2
-transact-sql,1,0.2
-communication design,1,0.2
-first click,1,0.2
-cac,1,0.2
-landings,1,0.2
-regex,1,0.2
-bm25,1,0.2
-code completion,1,0.2
-pos tagging,1,0.2
-w2v,1,0.2
-code search,1,0.2
-b1-c2,1,0.2
-docker compose,1,0.2
-waf,1,0.2
-sota cv,1,0.2
-semantic segmentation,1,0.2
-centernet,1,0.2
-prometheos,1,0.2
-1c: erp,1,0.2
-strong sense of responsibility and teamwork spirit,1,0.2
-majoring in language or linguistics is preferred,1,0.2
-with a strong interest and passion for linguistic research,1,0.2
-amplitude,1,0.2
-автоматизация процессов,1,0.2
-выявление аномалий,1,0.2
-теория вероятностей,1,0.2
-xsd,1,0.2
-json-schema,1,0.2
-soap,1,0.2
-design,1,0.2
-illustrator,1,0.2
-sbs,1,0.2
-web design,1,0.2
-нейросеть,1,0.2
-deep-learning,1,0.2
-algoritms,1,0.2
-robotics,1,0.2
-al,1,0.2
-a llm,1,0.2
-etl-процессы,1,0.2
-rubert,1,0.2
-работа с большими данными,1,0.2
-deeppavlov,1,0.2
-облачные технологии,1,0.2
-оптимизация и развертывание моделей машинного обучения,1,0.2
-обработка естественного языка (nlp),1,0.2
-кэширование и хранение временных данных,1,0.2
-matplotlib etc,1,0.2
-google analytics,1,0.2
-bachelor degree or above,1,0.2
-able to complete tasks on time,1,0.2
-управление бэклогом,1,0.2
-ai-powered,1,0.2
-межкатегорийная аналитика,1,0.2
-rollout,1,0.2
-cost of risk,1,0.2
-nielsen ri,1,0.2
-consumer and trade insights,1,0.2
-minos3,1,0.2
-puppet,1,0.2
-lifetime value,1,0.2
-look-a-like,1,0.2
-email,1,0.2
-промт-инжиниринг,1,0.2
-ии,1,0.2
-miro,1,0.2
-safe,1,0.2
-mdm,1,0.2
-udemy,1,0.2
-open,1,0.2
-kvm,1,0.2
-l3,1,0.2
-borgbackup,1,0.2
-администрирование серверов linux,1,0.2
-jetpack,1,0.2
-mikrotik l2,1,0.2
-routeros scripts,1,0.2
-модели osi,1,0.2
-solid foundation in theoretical linguistics,1,0.2
-able to communicate in english or chinese,1,0.2
-and a strong interest in applying linguistic knowledge to the industrial field,1,0.2
-interpersonal and communication skills to interact effectively with different departments,1,0.2
-boot,1,0.2
-test,1,0.2
-triton inference server,1,0.2
-deepstream,1,0.2
-zeppelin,1,0.2
-моделирование данных,1,0.2
-intellij idea,1,0.2
-jms,1,0.2
-istio,1,0.2
-laser,1,0.2
-physics,1,0.2
-photonics/optics,1,0.2
-prototyping,1,0.2
-статистика,1,0.2
-qlik sense,1,0.2
-man,1,0.2
-iis,1,0.2
-elementary,1,0.2
-hyper-v,1,0.2
-ms windows server,1,0.2
-ms windows,1,0.2
-dhcp,1,0.2
-unify,1,0.2
-help,1,0.2
-mission critical,1,0.2
-teradata,1,0.2
-yc dataproc,1,0.2
-jpa,1,0.2
-hibernate,1,0.2
-core,1,0.2
-great attention to detail,1,0.2
-distributed,1,0.2
-accelerate,1,0.2
-nn,1,0.2
-mistral,1,0.2
-boosting,1,0.2
-lightfm,1,0.2
-opc,1,0.2
-fuzzy,1,0.2
-sony imx500,1,0.2
-raspberry pi,1,0.2
-mosbus,1,0.2
-ai kit,1,0.2
-mjpeg,1,0.2
-ipsec,1,0.2
-xen,1,0.2
-vlan,1,0.2
-folium,1,0.2
-ump,1,0.2
-mllib,1,0.2
-внутренняя оптимизация сайта,1,0.2
-seo,1,0.2
-elementor,1,0.2
-kwork,1,0.2
-составление семантического ядра,1,0.2
-создание сайтов,1,0.2
-upwork,1,0.2
-crowdsourcing,1,0.2
-arxiv,1,0.2
-peft-a,1,0.2
-sberworks,1,0.2
-fsdp,1,0.2
-deepspeed,1,0.2
-nifti,1,0.2
-vision transformers,1,0.2
-hipaa,1,0.2
-mdr,1,0.2
-dicom,1,0.2
-precision-recall,1,0.2
-auc-roc,1,0.2
-oracle bi,1,0.2
-next best action,1,0.2
-decision trees,1,0.2
-timeseries,1,0.2
-xg,1,0.2
-carry-trade,1,0.2
-apache flink,1,0.2
-langgraph,1,0.2
-pytorch geometric,1,0.2
-sequence diagram,1,0.2
-https,1,0.2
-mqtt,1,0.2
-component diagram,1,0.2
-presale,1,0.2
-modbus rtu,1,0.2
-tibbo aggregate,1,0.2
-lorawan,1,0.2
-uwb,1,0.2
-opc ua,1,0.2
-thingsboard,1,0.2
-rest-api,1,0.2
-runtime,1,0.2
-performance,1,0.2
-model drift,1,0.2
-iou,1,0.2
-exceptional technical writing skills,1,0.2
-медицинская документация,1,0.2
-comfort with technology,1,0.2
-especially databases and statistical analysis software,1,0.2
-effective data analysis skills,1,0.2
-experience in managing multiple content and studies at different stages,1,0.2
-сбор и анализ информации,1,0.2
-knowledge of medical terminologies and jargon,1,0.2
-strong understanding of statistical methods and formulas,1,0.2
-excellent verbal communication skills,1,0.2
-xlnet,1,0.2
-nel,1,0.2
-искусственный интеллект ai,1,0.2
-sota llm,1,0.2
-ble,1,0.2
-rfid,1,0.2
-doker,1,0.2
-data sphere,1,0.2
-data proc,1,0.2
-influxdb,1,0.2
-telegraf,1,0.2
-data platform,1,0.2
-devops pipelines,1,0.2
-nerd,1,0.2
-ned,1,0.2
-tuning,1,0.2
-flux,1,0.2
-comfy ui,1,0.2
-runaway,1,0.2
-animatediff,1,0.2
-civil 3d,1,0.2
-ответственность,1,0.2
-mediapipe,1,0.2
-маркетинговые коммуникации,1,0.2
-яндекс.метрика,1,0.2
-продвижение бренда,1,0.2
-запуск маркетинговых кампаний,1,0.2
-adobe illustrator,1,0.2
-редизайн бренда,1,0.2
-яндекс.wordstat,1,0.2
-b2b-маркетинг,1,0.2
-позиционирование бренда,1,0.2
-разработка маркетинговых кампаний,1,0.2
-маркетинговая стратегия,1,0.2
-event management,1,0.2
-брендинг,1,0.2
-бренд-менеджмент,1,0.2
-запуск pr-кампании,1,0.2
-graphic designer,1,0.2
-googlle colab,1,0.2
-activemq,1,0.2
-virtual assistants,1,0.2
-image captioning,1,0.2
-instruction tuning,1,0.2
-visual question answering,1,0.2
-chatbots,1,0.2
-multimodal models,1,0.2
-sentiment analysis,1,0.2
-text summarization,1,0.2
-extjs,1,0.2
-multithread programming,1,0.2
-design patterns,1,0.2
-unit testing,1,0.2
-asp.net,1,0.2
-text2sql,1,0.2
-mf,1,0.2
-logreg,1,0.2
-broadcastreceiver,1,0.2
-ssl,1,0.2
-clean architecture,1,0.2
-dart,1,0.2
-dependency injection,1,0.2
-view,1,0.2
-fragment,1,0.2
-activity,1,0.2
-room,1,0.2
-workmanager,1,0.2
-core ml,1,0.2
-artifical intelligence,1,0.2
-adobe,1,0.2
-проектирование архитектуры решений,1,0.2
-archimate,1,0.2
-архитектурные паттерны,1,0.2
-team lead,1,0.2
-togaf,1,0.2
-english law,1,0.2
-legal advice,1,0.2
-contract law,1,0.2
-contractors contracts,1,0.2
-international contracts,1,0.2
-business english,1,0.2
-international trade law,1,0.2
-international logistics,1,0.2
-international law,1,0.2
-oil trading,1,0.2
-ffmpeg,1,0.2
-b2a,1,0.2
-pricing,1,0.2
-time-series,1,0.2
-dqi,1,0.2
-data catalogue,1,0.2
-data lineage,1,0.2
-o,1,0.2
-dds,1,0.2
-radar,1,0.2
-camera,1,0.2
-sensor fusion,1,0.2
-tracking,1,0.2
-tensorflow probability,1,0.2
-pymc,1,0.2
-hf transformers,1,0.2
-системная интеграция,1,0.2
-awk,1,0.2
-grep,1,0.2
-cut,1,0.2
-event sequences,1,0.2
-change point detection,1,0.2
-smp,1,0.2
-regexp,1,0.2
-mpp,1,0.2
-flink,1,0.2
-zookeeper,1,0.2
-vm,1,0.2
-deep learning computer vision,1,0.2
-gigasalute,1,0.2
-vad,1,0.2
-linux shell,1,0.2
-anti-spoofing,1,0.2
-page object model,1,0.2
-test management system,1,0.2
-devtools,1,0.2
-allure-pytest,1,0.2
-pytest-xdist,1,0.2
-allure,1,0.2
-mathematical modeling,1,0.2
-react navigation,1,0.2
-pytorch mobile,1,0.2
-app store,1,0.2
-ios,1,0.2
-google play,1,0.2
-react native,1,0.2
-realm,1,0.2
-разработка по,1,0.2
-oracle sql,1,0.2
-postgress sql,1,0.2
-generative ai,1,0.2
-cyberrealistic pony,1,0.2
-civitai,1,0.2
-wav2lip,1,0.2
-computational advertising,1,0.2
-ecpm,1,0.2
-jupyter notebook,1,0.2
-kaiten,1,0.2
-open3d,1,0.2
-pcl,1,0.2
-waymo,1,0.2
-label studio,1,0.2
-pcd,1,0.2
-kitti,1,0.2
-smtp,1,0.2
-semi-supervised,1,0.2
-автоматизация,1,0.2
-proof of concept,1,0.2
-rpa,1,0.2
-no-code,1,0.2
-скоринговая карта,1,0.2
-● fintech,1,0.2
-● machine learning,1,0.2
-● теория вероятности,1,0.2
-● прикладная статистика,1,0.2
-asio,1,0.2
-gstreamer,1,0.2
-arm,1,0.2
-qml,1,0.2
-rk36xx,1,0.2
-поиск,1,0.2
-работа с ключевыми клиентами,1,0.2
-подготовка презентаций,1,0.2
-проведение презентаций,1,0.2
-анализ бизнес показателей,1,0.2
-проектный менеджмент,1,0.2
-управление эффективностью,1,0.2
-оценка экономического эффекта,1,0.2
-деловая коммуникация,1,0.2
-оптимизация бизнес-процессов,1,0.2
-ai-советчик,1,0.2
-взаимодействие с поставщиками,1,0.2
-pet,1,0.2
-pytorch lightning,1,0.2
-segmentation,1,0.2
-object detection,1,0.2
-self-supervised,1,0.2
-winapi,1,0.2
-fsm,1,0.2
-llm text-to-text,1,0.2
-prompt-инжиниринг,1,0.2
-dora,1,0.2
-flask framework,1,0.2
-pymystem,1,0.2
-eccv,1,0.2
-cvpr,1,0.2
-face beautification,1,0.2
-iccv,1,0.2
-firebird,1,0.2
-dbt,1,0.2
-sql developer,1,0.2
-peer review,1,0.2
-large language model,1,0.2
-proficiency in configuring,1,0.2
-interest or passion for the intersection of technology and medicine,1,0.2
-yaml,1,0.2
-back,1,0.2
-user story,1,0.2
-front,1,0.2
-io,1,0.2
-ui for apache kafka,1,0.2
-draw,1,0.2
-ms visio,1,0.2
-dbeaver,1,0.2
-pgadmin,1,0.2
-softline digital,1,0.2
-fundamento,1,0.2
-behavior tree,1,0.2
-mfc,1,0.2
-jetpack compose,1,0.2
-customview,1,0.2
-flow,1,0.2
-dagger,1,0.2
-maintaining,1,0.2
-software development or devops,1,0.2
-remote access,1,0.2
-firewalling,1,0.2
-years in a technical role,1,0.2
-experience in networks,1,0.2
-g,1,0.2
-hands-on experience managing kubernetes clusters in various environments,1,0.2
-strong interpersonal and communication skills to effectively collaborate with cross-functional teams,1,0.2
-ability to adapt quickly to new technologies and processes,1,0.2
-and troubleshooting linux servers,1,0.2
-minimum of,1,0.2
-epicphotogasm,1,0.2
-reactor,1,0.2
-text to speech,1,0.2
-runway,1,0.2
-majicmix fantasy,1,0.2
-amqp,1,0.2
-parquet,1,0.2
-mr,1,0.2
-classic ml,1,0.2
-awq,1,0.2
-70b,1,0.2
-gemma,1,0.2
-7b,1,0.2
-mistral etc,1,0.2
-android developer,1,0.2
-coroutines,1,0.2
-zephyr,1,0.2
-testit,1,0.2
-ml разработчик,1,0.2
-"oc linux (rhel, centos",1,0.2
-"jupyterhub, airflow, spark, kubernetes",1,0.2
-rouge,1,0.2
-bleu,1,0.2
-use cases,1,0.2
-psycopg2,1,0.2
-postgre sql,1,0.2
-cash-flow,1,0.2
-avro,1,0.2
-hbase,1,0.2
-spark streaming,1,0.2
-pro,1,0.2
-clip,1,0.2
-er,1,0.2
-pyplot,1,0.2
-slearn,1,0.2
-c sas,1,0.2
-powerbi,1,0.2
-мфо,1,0.2
-ретро-тестирование,1,0.2
-логистическая регрессия,1,0.2
-построение скоринговых моделей,1,0.2
-риск-аналитик,1,0.2
-i,1,0.2
-google collab,1,0.2
-грамотная письменная речь,1,0.2
-написание статей,1,0.2
-soft,1,0.2
-hard,1,0.2
-hybrid,1,0.2
-collaborative filtering,1,0.2
-content-based,1,0.2
-big data tools,1,0.2
-basic level9,1,0.2
-flask11,1,0.2
-docker10,1,0.2
-senior critical skills,1,0.2
-meet-up,1,0.2
-pre-training from scratch,1,0.2
-pyro,1,0.2
-domain-based,1,0.2
-senior other skills,1,0.2
-pyro6,1,0.2
-розничные риски,1,0.2
-риск-метрики,1,0.2
-must have,1,0.2
-draftbit,1,0.2
-apache,1,0.2
-kuberflow,1,0.2
-yandex gpt,1,0.2
-delivery,1,0.2
-datascience,1,0.2
-dbscan,1,0.2
-relation extraction,1,0.2
-deep machine learning,1,0.2
-enterprise integration patterns,1,0.2
-sota opensource,1,0.2
-cosine similarity,1,0.2
-kan,1,0.2
-microsoft office,1,0.2
-pptx,1,0.2
-ssas,1,0.2
-apache nifi,1,0.2
-hr tech,1,0.2
-okr,1,0.2
-умение принимать решения,1,0.2
-near real time,1,0.2
-spark java framework,1,0.2
-prometeus,1,0.2
-cd pipelines,1,0.2
-halcon,1,0.2
-operncv,1,0.2
-yolov8,1,0.2
-system design,1,0.2
-product vision,1,0.2
-dnn,1,0.2
-mongo,1,0.2
-multithreading,1,0.2
-pillow,1,0.2
-onnx runtime,1,0.2
-sanic,1,0.2
-etcd,1,0.2
-mxnet,1,0.2
-run,1,0.2
-gnu,1,0.2
-plotlydash,1,0.2
-metabase,1,0.2
-plotly dash,1,0.2
-build,1,0.2
-exec,1,0.2
-apache registry,1,0.2
-git scm,1,0.2
-low-code,1,0.2
-service broker,1,0.2
-dts,1,0.2
-postgresql pro,1,0.2
-t-sql,1,0.2
-always on,1,0.2
-ms dtc,1,0.2
-integration services,1,0.2
-database mail,1,0.2
-sql os,1,0.2
-powershell,1,0.2
-database mirroring,1,0.2
-dba postgresql,1,0.2
-sql trace,1,0.2
-microsoft clustering,1,0.2
-master-target,1,0.2
-scylla,1,0.2
-linux-based,1,0.2
-aqa,1,0.2
-testrail,1,0.2
-ml-pipelines,1,0.2
-drivendata,1,0.2
-time series,1,0.2
-real-time ml based,1,0.2
-sql server agent,1,0.2
-in-memory oltp,1,0.2
-extended events,1,0.2
-sql audit,1,0.2
-replication,1,0.2
-csv,1,0.2
-resource governor,1,0.2
-sql server profiler,1,0.2
-numa,1,0.2
-ddl,1,0.2
-data vault,1,0.2
-giga,1,0.2
-h3,1,0.2
-osm,1,0.2
-postgis,1,0.2
-cdp,1,0.2
-campaign,1,0.2
-cdo,1,0.2
-rt,1,0.2
-онтологические модели,1,0.2
-phd,1,0.2
-графовые базы данных,1,0.2
-построение хранилищ данных,1,0.2
-dwh lead,1,0.2
-api hh,1,0.2
-fe,1,0.2
-celery,1,0.2
-roc-auc,1,0.2
-crm,1,0.2
-vox,1,0.2
-bdm,1,0.2
-aws s3,1,0.2
-gcs,1,0.2
-canvas,1,0.2
-aider,1,0.2
-cursor,1,0.2
-vector db,1,0.2
-gpa,1,0.2
-cto,1,0.2
-amocrm,1,0.2
-oozie,1,0.2
-j2ee,1,0.2
-back-end,1,0.2
-langserve,1,0.2
-traeffik,1,0.2
-chrome,1,0.2
-node,1,0.2
-electron,1,0.2
-actionable insights,1,0.2
-raw sql,1,0.2
-c ds,1,0.2
-deepfm,1,0.2
-ray tune,1,0.2
-huggingface blog,1,0.2
-paperswithcode,1,0.2
-prc,1,0.2
-segmentanything,1,0.2
-macos,1,0.2
-shadow stack,1,0.2
-openai gymnasium,1,0.2
-pid controller,1,0.2
-sonarqube,1,0.2
-ml system design,1,0.2
-s3 ceph,1,0.2
-hnswlib,1,0.2
-front-end,1,0.2
-llm applications,1,0.2
-effector,1,0.2
-async calling,1,0.2
-pydantic,1,0.2
-webservice,1,0.2
-sync,1,0.2
-gigaserve,1,0.2
-qlora,1,0.2
-seldon core,1,0.2
-werf,1,0.2
-experiment tracking,1,0.2
-bentoml,1,0.2
-feature store online,1,0.2
-feast,1,0.2
-patchguard,1,0.2
-smep,1,0.2
-smap,1,0.2
-cet,1,0.2
-hvci,1,0.2
-kaslr,1,0.2
-cfg,1,0.2
-tpm,1,0.2
-trustzone,1,0.2
-1c pdm,1,0.2
-1c lims,1,0.2
-ddflow,1,0.2
-scikit learn,1,0.2
-rec sys,1,0.2
-nba,1,0.2
-deeplab,1,0.2
-pspnet,1,0.2
-mobilenet,1,0.2
-kmeans,1,0.2
-data scientis,1,0.2
-adtech,1,0.2
-hugging face transformers,1,0.2
-language modeling,1,0.2
-rag-fusion,1,0.2
-text ranking,1,0.2
-langsmith,1,0.2
-lm,1,0.2
-causal inference,1,0.2
-huggingface transformers,1,0.2
-performance optimization,1,0.2
-very large language models,1,0.2
-vectordb,1,0.2
-layout detection,1,0.2
-text generation,1,0.2
-pm,1,0.2
-unsloth,1,0.2
-активные продажи,1,0.2
-oauth2,1,0.2
-jwt,1,0.2
-crud,1,0.2
-1c,1,0.2
-net,1,0.2
-ecs,1,0.2
-asp,1,0.2
-scratch,1,0.2
-lora-adapters,1,0.2
-ray,1,0.2
-real-time,1,0.2
-high-performance,1,0.2
-localai,1,0.2
-управление изменениями,1,0.2
-управление ожиданиями,1,0.2
-наставничество,1,0.2
-text,1,0.2
-fine-tune open source llms,1,0.2
-sql rag,1,0.2
-llm-based,1,0.2
-due diligence,1,0.2
-ml phyton,1,0.2
-витрины данных,1,0.2
-аналитика больших массивов данных,1,0.2
-access,1,0.2
-way4,1,0.2
-написание скриптов,1,0.2
-compass,1,0.2
-fullstack,1,0.2
-mlf,1,0.2
-todo,1,0.2
-unsafe,1,0.2
-srp,1,0.2
-construct,1,0.2
-blender,1,0.2
-unity webgl,1,0.2
-elt,1,0.2
-ressys,1,0.2
-rectools,1,0.2
-ab tests,1,0.2
-multi-armed bandits,1,0.2
-text2image,1,0.2
-p-tuning,1,0.2
-image rag,1,0.2
-анализ текстовой информации,1,0.2
-критическое мышление,1,0.2
-ботаника,1,0.2
-supabase,1,0.2
-dao,1,0.2
-next.js,1,0.2
-future,1,0.2
-nest.js,1,0.2
-application security,1,0.2
-and imitation learning,1,0.2
-behavior cloning,1,0.2
-opensearch,1,0.2
-soft-skills,1,0.2
-governance,1,0.2
-architecture as code,1,0.2
-solution arch,1,0.2
-geoserver,1,0.2
-leaflet,1,0.2
-sasplanet,1,0.2
-lgbm,1,0.2
-gnn,1,0.2
-v100,1,0.2
-udf,1,0.2
-hgx,1,0.2
+курьерская доставка,264,13.2
+android,244,12.2
+знание города,206,10.3
+свободный график,191,9.6
+пунктуальность,177,8.9
+ответственность,176,8.8
+курьер,173,8.7
+водительское удостоверение категории b,126,6.3
+умение ориентироваться,117,5.9
+рядом с домом,116,5.8
+высокий доход,105,5.3
+грамотная речь,100,5.0
+работа в команде,90,4.5
+работоспособность,89,4.5
+вежливость,88,4.4
+исполнительность,83,4.2
+внимательность,83,4.2
+ориентация по карте,75,3.8
+ozon,74,3.7
+мобильность,74,3.7
+без опыта,73,3.7
+с 16,60,3.0
+доставка,57,2.9
+delivery club,56,2.8
+dostavista,55,2.8
+честность,53,2.7
+деловое общение,48,2.4
+стрессоустойчивость,47,2.4
+подработка,46,2.3
+пользователь пк,43,2.2
+быстрая обучаемость,40,2.0
+работа рядом с домом,39,2.0
+доставщик,34,1.7
+водитель,33,1.7
+dodo,31,1.6
+ozon fresh,30,1.5
+отчетность,30,1.5
+желание зарабатывать,28,1.4
+вождение автомобиля,28,1.4
+начинающий специалист,28,1.4
+умение быстро ориентироваться в сложной дорожной обстановке,27,1.4
+уверенное вождение автомобиля,27,1.4
+водитель-курьер,27,1.4
+коммуникабельность и умение общаться с заказчиками,27,1.4
+опытное использование навигатора,27,1.4
+аккуратное вождение,26,1.3
+доставка заказов,26,1.3
+yandex,25,1.3
+оперативная и безопасная езда на автомобиле в разных условиях дорожного движения,25,1.3
+lamoda,25,1.3
+доставка продуктов,24,1.2
+авто-курьер на машине компании,24,1.2
+клиентоориентированность,24,1.2
+знание москвы,24,1.2
+fresh,23,1.2
+экспедирование,23,1.2
+работа с клиентами,23,1.2
+авто-курьер,23,1.2
+b,23,1.2
+пеший курьер,23,1.2
+водительский стаж,22,1.1
+доставщик заказов,22,1.1
+доставщик продуктов,21,1.1
+gis,20,1.0
+оформление заказов,19,1.0
+автомобильные перевозки,18,0.9
+коммуникабельность,18,0.9
+телефонные переговоры,17,0.9
+ios,17,0.9
+активность,16,0.8
+ежедневные выплаты,16,0.8
+умения выбирать оптимальные маршруты поездок,16,0.8
+ежедневная оплата,16,0.8
+курьер подработка аптек/документов,15,0.8
+курьер документов,15,0.8
+умение работать в коллективе,15,0.8
+работа с навигатором,15,0.8
+навык комфортного вождения,15,0.8
+удобная подработка,15,0.8
+поиск информации в интернет,15,0.8
+курьер аптек,15,0.8
+доброжелательность,14,0.7
+аккуратность,14,0.7
+обучение и развитие,14,0.7
+кооперативность,14,0.7
+quot,14,0.7
+работа с документами,14,0.7
+логистика,14,0.7
+знание устройства автомобиля,13,0.7
+доставка товаров,13,0.7
+оформление документации,12,0.6
+грамотность,12,0.6
+управление временем,11,0.6
+умение выбирать оптимальные маршруты поездок,11,0.6
+взаимодействие с курьерскими службами,11,0.6
+транспортная логистика,11,0.6
+организаторские навыки,11,0.6
+доставка еды,10,0.5
+автомобильные грузоперевозки,10,0.5
+точность и внимательность к деталям,10,0.5
+правила дорожного движения,10,0.5
+грамотная устная речь,10,0.5
+доставка товара,9,0.5
+еженедельные выплаты,9,0.5
+физическая выносливость,9,0.5
+район на выбор,9,0.5
+умение работать в команде,9,0.5
+автокурьер,8,0.4
+подработка на выходные,8,0.4
+эксплуатация легкового автомобиля,8,0.4
+деловая коммуникация,8,0.4
+подработка курьером,8,0.4
+подработка в вечернее время,8,0.4
+умение ориентироваться по карте,8,0.4
+whatsapp,7,0.4
+ориентация на клиента,7,0.4
+мотивация персонала,6,0.3
+управление курьерской службой,6,0.3
+исполнение личных поручений руководителя,6,0.3
+работа с людьми,6,0.3
+вождение автомобилей представительского класса,6,0.3
+активные продажи,6,0.3
+велокурьер,6,0.3
+опрятный внешний вид,6,0.3
+деловая корреспонденция,6,0.3
+driving licence b,6,0.3
+документальное сопровождение,6,0.3
+ориентация на результат,6,0.3
+грузоперевозки,6,0.3
+исполнение поручений руководителя,6,0.3
+водительское удостоверение категории bc,6,0.3
+материальная ответственность,6,0.3
+личный автомобиль,6,0.3
+перевозка грузов,5,0.3
+отличное знание города,5,0.3
+стаж вождения от 3 лет,5,0.3
+подбор персонала,5,0.3
+работа с оргтехникой,5,0.3
+ответственность и пунктуальность,5,0.3
+работа с большим объемом информации,5,0.3
+складская логистика,5,0.3
+деловая переписка,5,0.3
+internet,5,0.3
+умение ориентироваться на местности,5,0.3
+google,5,0.3
+работа,5,0.3
+excel,5,0.3
+гибкий график,5,0.3
+ведение переговоров,5,0.3
+умение принимать решения,5,0.3
+petshopru,4,0.2
+без доставки еды,4,0.2
+ms excel,4,0.2
+petshop,4,0.2
+консультативные продажи,4,0.2
+выносливость,4,0.2
+обучение персонала,4,0.2
+планирование и организация,4,0.2
+работа с персоналом,4,0.2
+ведение отчетности,4,0.2
+аналитические способности,4,0.2
+iphone,4,0.2
+транспортная накладная,4,0.2
+word,4,0.2
+управление персоналом,4,0.2
+мотивация,4,0.2
+обучаемость,4,0.2
+ms office,4,0.2
+готовность обучаться,4,0.2
+без опыта работы,4,0.2
+работа курьером,4,0.2
+ru,4,0.2
+b c d,4,0.2
+скорость,4,0.2
+курьер-водитель,4,0.2
+оперативность,4,0.2
+организация рабочего процесса,4,0.2
+работа с тмц,3,0.2
+уверенный пользователь пк,3,0.2
+навыки межличностного общения,3,0.2
+c,3,0.2
+работа в условиях многозадачности,3,0.2
+водительские права,3,0.2
+соблюдение пдд,3,0.2
+массовый подбор персонала,3,0.2
+продукты,3,0.2
+еда,3,0.2
+водитель на автомобиль компании,3,0.2
+выявление потребностей,3,0.2
+контроль сроков годности,3,0.2
+сдержанность,3,0.2
+неконфликтность,3,0.2
+умение пользоваться навигатором,3,0.2
+желание заработать,3,0.2
+опрятность,3,0.2
+умение работать с людьми,3,0.2
+заключение договоров,3,0.2
+водитель на своем автомобиле,3,0.2
+русский язык,3,0.2
+междугородние перевозки,3,0.2
+пунктуация,3,0.2
+без формы и термосумки,3,0.2
+внимательность к деталям,2,0.1
+приемка груза,2,0.1
+консультирование клиентов,2,0.1
+дружелюбность,2,0.1
+работа в коллективе,2,0.1
+vprok,2,0.1
+деловые коммуникации,2,0.1
+педантичность,2,0.1
+внутренняя логистика,2,0.1
+дружелюбие,2,0.1
+амо,2,0.1
+google sheets,2,0.1
+впр,2,0.1
+эксплуатация грузового автомобиля,2,0.1
+высокая энергичность,2,0.1
+r-keeper,2,0.1
+безопасное вождение,2,0.1
+ford transit,2,0.1
+outlook,2,0.1
+оперативный поиск информации в сети интернет,2,0.1
+расстановка приоритетов,2,0.1
+d,2,0.1
+грузовой транспорт,2,0.1
+гибкость,2,0.1
+хорошее знание города,2,0.1
+бумажный документооборот,2,0.1
+делопроизводство,2,0.1
+любое гражданство,2,0.1
+работа у дома,2,0.1
+навык комфортного безаварийного вождения,2,0.1
+сводные таблицы,2,0.1
+битрикс24,2,0.1
+telegram,2,0.1
+контроль технического состояния транспортного средства,2,0.1
+hr,2,0.1
+деловая этика,2,0.1
+знание технического устройства и опыт ремонта легковых автомобилей,2,0.1
+яндекс.лавка,2,0.1
+яндекс.про,2,0.1
+яндекс.еда,2,0.1
+электронная почта,2,0.1
+опыт работы курьером,2,0.1
+умение разрабатывать оптимальные маршруты передвижения,1,0.1
+clipse brand,1,0.1
+водительское удостоверение категории bcd,1,0.1
+шустрость,1,0.1
+ведение рабочей документации,1,0.1
+персональный водитель,1,0.1
+семейный водитель,1,0.1
+высокая степень самоорганизации,1,0.1
+умение находить общий язык,1,0.1
+обеспечение жизнедеятельности офиса,1,0.1
+закупка товаров и услуг,1,0.1
+ms powerpoint,1,0.1
+офисная техника,1,0.1
+google chrome,1,0.1
+наличие личного автомобиля,1,0.1
+быстрая ходьба,1,0.1
+быстрый,1,0.1
+доставка корреспонденции,1,0.1
+e-mail,1,0.1
+авто курьер,1,0.1
+нет опыта,1,0.1
+pc,1,0.1
+online,1,0.1
+эксплуатация автомобиля представительского класса,1,0.1
+знание устройства грузовой автомобильной спецтехники,1,0.1
+ремонт и обслуживание автоматики,1,0.1
+собранность,1,0.1
+пеший туризм,1,0.1
+навигация,1,0.1
+работа также для студентов,1,0.1
+развозка,1,0.1
+урегулирование конфликтов,1,0.1
+курьерская служба,1,0.1
+доставка документов,1,0.1
+активная жизненная позиция,1,0.1
+lada largus,1,0.1
+навыки комфортного вождения,1,0.1
+общение с клиентами,1,0.1
+docs,1,0.1
+ответственное хранение,1,0.1
+курьер на велосипеде компании,1,0.1
+работа с базами данных,1,0.1
+crm,1,0.1
+"водительское удостоверение категории в,с,d",1,0.1
+велоспорт,1,0.1
+доставка продуктов питания,1,0.1
+организованность,1,0.1
+работа с возражениями,1,0.1
+скорость и оперативность,1,0.1
+знание москвы и московской области,1,0.1
+быстрая доставка,1,0.1
+hyundai porter,1,0.1
+peugeot boxer,1,0.1
+велокурьер доставки,1,0.1
+аренда авто под доставку,1,0.1
+яндекс доставка,1,0.1
+nfc,1,0.1
+ориентация по картам,1,0.1
+microsoft office,1,0.1
+курьер на велосипеде,1,0.1
+ozon wildberries,1,0.1
+пассажирские перевозки,1,0.1
+1с: предприятие 8,1,0.1
+первичная бухгалтерская документация,1,0.1
+бухгалтерская отчетность,1,0.1
+бухгалтерский учет,1,0.1
+совместительство,1,0.1
+курьер/велокурьер,1,0.1
+casual,1,0.1
+управление велосипедом,1,0.1
+недвижимость,1,0.1
+интерьерная фотография,1,0.1
+предметная фотосъемка,1,0.1
+пейзажная фотография,1,0.1
+фотография,1,0.1
+высокая работоспособность,1,0.1
+трудоспособность,1,0.1
+акты сверок,1,0.1
+1с: бухгалтерия,1,0.1
+отчет о движении денежных средств,1,0.1
+первичная документация,1,0.1
+авансовые отчеты,1,0.1
+расчеты с поставщиками и подрядчиками,1,0.1
+без формы,1,0.1
+работа вакансии,1,0.1
+курьер суши роллы,1,0.1
+курьер еда,1,0.1
+подработки без опыта,1,0.1
+яндекс еда,1,0.1
+доставка курьер,1,0.1
+андроид,1,0.1
+яндекс курьер,1,0.1
+курьер яндекс,1,0.1
+курьер деливери,1,0.1
+курьер самокат,1,0.1
+курьер доставка,1,0.1
+вакансии подработки,1,0.1
+вакансия курьер,1,0.1
+желание работать и зарабатывать,1,0.1
+эксплуатация спецтехники,1,0.1
+эксплуатация автобуса,1,0.1
+безопасное маневрирование,1,0.1
+работа с денежными средствами,1,0.1
+доставка продуктов до клиентов,1,0.1
+автокурьеры,1,0.1
+доставка букетов,1,0.1
+умение планировать,1,0.1
+обработка исходящей корреспонденции,1,0.1
+права категории в,1,0.1
+работник горячего и холодного цеха,1,0.1
+повара линии быстрого питания,1,0.1
+специалист по приемке заказов,1,0.1
+кассир,1,0.1
+кассовые операции,1,0.1
+microsoft word,1,0.1
+a,1,0.1
+приемка товара,1,0.1
+ci,1,0.1
+cd,1,0.1
+it,1,0.1
+торговая площадка,1,0.1
+adb,1,0.1
+qa,1,0.1
+выплаты сразу,1,0.1
+без еды и короьба,1,0.1
+помощник на кухне,1,0.1
+курьер доставки,1,0.1
+уборщик/уборщица зала,1,0.1
+способность работать с документами,1,0.1
+android sdk,1,0.1
+составление маршрутов,1,0.1
+честный,1,0.1
+передача документов в ифнс,1,0.1
+передача документов в пфр,1,0.1
+позитивный настрой,1,0.1
+передача документов контрагентам,1,0.1
+стабильность,1,0.1
+обмен документами с почтой россии,1,0.1
+умение работать с клиентами,1,0.1
+ois,1,0.1
+citroen jumpy,1,0.1
+корпоративная этика,1,0.1
+работа по выходным,1,0.1
+автокурьер на машине компании,1,0.1
+желание обучаться,1,0.1
+документооборот,1,0.1
+деловой этикет,1,0.1
+желание расти и развиваться,1,0.1
+хорошая обучаемость,1,0.1
+оформление возврата продукции,1,0.1
+грамотная письменная речь,1,0.1
+навыки составления отчетности,1,0.1
+опытный пользователь пк,1,0.1
+навыки делового общения,1,0.1
+эксплуатационные документы,1,0.1
+грамотный русский язык,1,0.1
+работа с кассой,1,0.1
+инициативность,1,0.1
+доставка грузов,1,0.1
+автомобиль,1,0.1
+поставленная речь,1,0.1
+lafcafe,1,0.1
+ведение отчётности,1,0.1
+знание банковских продуктов,1,0.1
+многозадачность,1,0.1
+ms word,1,0.1
+умение ориентироваться по местности,1,0.1
+hatimaki,1,0.1
+foodband,1,0.1
+larionov grill,1,0.1
+bar,1,0.1
+mybox,1,0.1
+satoshi,1,0.1
+redbox,1,0.1
+amp,1,0.1
+тайм-менеджмент,1,0.1
+лидерство,1,0.1
+подготовка презентаций,1,0.1
+яндекс.вебмастер,1,0.1
+ford,1,0.1
+luxe,1,0.1
+volkswagen,1,0.1
+wildberries,1,0.1
+работа с юридическими лицами,1,0.1
+хорошее знание москвы,1,0.1
+грамотная устная и письменная речь,1,0.1
+ars express,1,0.1
+навыки коммуникации,1,0.1
+рекрутмент,1,0.1
+навыки презентации,1,0.1
+телефонное интервью,1,0.1
+входящие звонки,1,0.1
+проведение интервью,1,0.1
+оператор,1,0.1
+подбор сотрудников,1,0.1
+исходящие звонки,1,0.1
+навыки продаж,1,0.1
+консультирование,1,0.1
+навыки переговоров,1,0.1
+оператор call-центра,1,0.1
+аутсорсинг курьеров,1,0.1
+управление командой,1,0.1
+аутсорсинг,1,0.1
+руководство коллективом,1,0.1
+велосипед,1,0.1
+путевые листы,1,0.1
+учет гсм,1,0.1

@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>Зарплатный справочник на базе HH</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -16,7 +16,8 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
     </head>
     
     <body class="bg-light" data-bs-spy="scroll" data-bs-target="tooltip" id="page-top">
@@ -27,10 +28,10 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                        <li class="nav-item"><a class="nav-link" href="form.html">Поиск</a></li>
-                        <li class="nav-item"><a class="nav-link" href="results.html">Результаты</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('form') }}">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('results') }}">Результаты</a></li>                       
+                        <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
                     </ul>
                 </div>
             </div>
@@ -109,7 +110,7 @@
                     <!-- Data Scientist -->
                     <div class="col-lg-4 col-sm-6">
                         <a class="d-block position-relative text-decoration-none" href="results.html?profession=Data Scientist" title="Data Scientist">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Data_csientist.png" alt="Data Scientist" />
+                            <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/Data_csientist.png')}}"" alt="Data Scientist" />
                             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 text-white opacity-0 hover-opacity-100">
                                 <div>
                                     <div class="fw-light">AI & ML</div>
@@ -121,7 +122,7 @@
                     <!-- DS Developer -->
                     <div class="col-lg-4 col-sm-6">
                         <a class="d-block position-relative text-decoration-none" href="results.html?profession=DS Developer" title="DS Developer">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/DS developer.png" alt="DS Developer" />
+                            <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/DS developer.png')}}" alt="DS Developer" />
                             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 text-white opacity-0 hover-opacity-100">
                                 <div>
                                     <div class="fw-light">AI & ML</div>
@@ -133,7 +134,7 @@
                     <!-- AI Analyst -->
                     <div class="col-lg-4 col-sm-6">
                         <a class="d-block position-relative text-decoration-none" href="results.html?profession=AI Analyst" title="AI Analyst">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/AI analyst.png" alt="AI Analyst" />
+                            <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/AI analyst.png')}}" alt="AI Analyst" />
                             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 text-white opacity-0 hover-opacity-100">
                                 <div>
                                     <div class="fw-light">AI & ML</div>
@@ -149,7 +150,7 @@
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Узнайте Вашу будущую зарплату!</h2>
-                <a class="btn btn-light btn-xl" href="form.html">Получить сводку!</a>
+                <a class="btn btn-light btn-xl" href="{{ url_for('form') }}">Получить сводку!</a>
             </div>
         </section>
         <!-- Contact-->
@@ -231,7 +232,7 @@
 
         <blockquote class="blockquote text-center mt-4">
             <hr class="divider" />
-            <p class="mb-0 fst-italic">"Без труда не вытащишь и рыбку из пруда"</p>
+            <p class="mb-0 fst-italic">{{proverb}}</p>
             <footer class="blockquote-footer mt-2">Народная мудрость</footer>
         </blockquote>
 

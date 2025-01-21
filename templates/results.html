@@ -16,9 +16,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="form.html">Поиск</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="results.html">Результаты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('form') }}">Поиск</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('results') }}">Результаты</a></li>                   
                     <li class="nav-item"><a class="nav-link text-light" href="#contact">Контакты</a></li>
                 </ul>
             </div>
@@ -34,61 +34,39 @@
         <h3 class="text-danger">Параметры запроса</h3>
         <table class="table table-bordered">
             <tbody>
+            {% for param_name, param_value in param_dict.items() %}
                 <tr>
-                    <td class="table-danger text-dark" style="width: 25%;">В названии</td>
-                    <td>ML</td>
+                    <!-- Левая ячейка с классом и фиксированной шириной -->
+                    <td class="table-danger text-dark" style="width: 25%;">
+                        {{ param_name }}
+                    </td>
+                    <!-- Правая ячейка со значением -->
+                    <td>
+                        {{ param_value }}
+                    </td>
                 </tr>
-                <tr>
-                    <td class="table-danger text-dark" style="width: 25%;">Профессиональная роль</td>
-                    <td>Разработчик</td>
-                </tr>
-                <tr>
-                    <td class="table-danger text-dark" style="width: 25%;">Регион</td>
-                    <td>Москва</td>
-                </tr>
+            {% endfor %}
             </tbody>
         </table>
 
         <!-- Навыки -->
         <h3 class="text-danger">Ключевые навыки</h3>
         <div class="mb-4">
-            <span class="badge bg-primary">Python</span>
-            <span class="badge bg-success">SQL</span>
-            <span class="badge bg-warning text-dark">PyTorch</span>
+            {% set colors = ["primary", "success", "warning text-dark", "danger", "info", "secondary", "dark"] %}
+            {% for skill in key_skills %}
+                <span class="badge bg-{{ colors[loop.index0 % colors|length] }}">{{ skill }}</span>
+            {% endfor %}
         </div>
 
         <!-- Таблица зарплат -->
         <h3 class="text-danger">Информация о зарплатах</h3>
-        <table class="table table-striped">
-            <thead class="table-danger">
-                <tr>
-                    <th scope="col">Профессиональная роль</th>
-                    <th scope="col">Зарплата от (тыс/₽)</th>
-                    <th scope="col">Зарплата до (тыс/₽)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Python developer</td>
-                    <td>100</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>ML Engineer</td>
-                    <td>150</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>AI architect</td>
-                    <td>200</td>
-                    <td>400</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            {{ salary_html | safe }}
+        </div>
 
         <!-- Пословица -->
         <blockquote class="blockquote text-center mt-4">
-            <p class="mb-0 fst-italic">"Куй железо, пока горячо"</p>
+            <p class="mb-0 fst-italic">{{proverb}}</p>
             <footer class="blockquote-footer mt-2">Народная мудрость</footer>
         </blockquote>
 
