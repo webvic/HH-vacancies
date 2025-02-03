@@ -1,160 +1,159 @@
-import json
 import pandas as pd
-import xml.etree.ElementTree as ET
-import requests
 from constants import *
+from hh_parse import process_vacancies
+import sqlite3
 
-def get_cbr_exchange_rates():
-    url = 'http://www.cbr.ru/scripts/XML_daily.asp'
-    response = requests.get(url)
-    if response.status_code != 200:
-        raise Exception('Не удалось получить данные от ЦБ РФ')
+def get_salary_analytics(ids_found):
     
-    root = ET.fromstring(response.content)
-    exchange_rates = {}
+    """Сначала считаем вакансии и зарплаты, затем добавляем навыки."""
     
-    for valute in root.findall('Valute'):
-        char_code = valute.find('CharCode').text
-        nominal = int(valute.find('Nominal').text)
-        value = float(valute.find('Value').text.replace(',', '.'))
-        exchange_rates[char_code] = value / nominal  # Приводим к единичному курсу
+    with sqlite3.connect(DB_FILE) as conn:
+        cursor = conn.cursor()
+
+        # 1️⃣ Создаем временную таблицу
+        cursor.execute("CREATE TEMP TABLE temp_ids (id INTEGER PRIMARY KEY)")
+        #  заполняем ее найденными при поиске id
+        cursor.executemany("INSERT INTO temp_ids (id) VALUES (?)", [(i,) for i in ids_found])
+
+        # 1️⃣ Собираем объединенную таблицу для аналитики
+        cursor.execute("""
+            SELECT r.name AS "Профессия", v.Salary_from, v.Salary_to
+            FROM vacancies v
+            JOIN vacancy_role vr ON v.id = vr.Vacancy_ID
+            JOIN roles r ON vr.Role_ID = r.id
+            JOIN categories c ON r.category_id = c.id
+            JOIN temp_ids t ON v.id = t.id  -- Используем временную таблицу
+        """)
+        
+        data = cursor.fetchall()
+
+        # 2️⃣ Создаем DataFrame с вакансиями (без навыков)
+        df_vacancies = pd.DataFrame(data, columns=["Профессия", "Salary_from", "Salary_to"])
+
+        # 3️⃣ Добавляем колонку "Средняя зарплата"
+        df_vacancies["Salary_av"] = df_vacancies.apply(
+            lambda row: (row["Salary_from"] + row["Salary_to"]) / 2 
+            if pd.notnull(row["Salary_from"]) and pd.notnull(row["Salary_to"]) else
+            row["Salary_from"] if pd.notnull(row["Salary_from"]) else
+            row["Salary_to"], axis=1
+        )
+
+        # 4️⃣ Переводим зарплаты в тысячи ₽
+        df_vacancies.loc[:, ["Salary_from", "Salary_to", "Salary_av"]] /= 1000
+        print("Колонки в df_vacancies:", df_vacancies.columns.tolist())
+
+
+        # 5️⃣ Группируем данные по профессиям (подсчет вакансий и зарплат)
+        df_roles = df_vacancies.groupby("Профессия").agg(
+            Вакансий_всего=("Профессия", "size"),  # ✔ Корректное создание колонки в agg()
+            Вакансий_с_зп=("Salary_av", "count"),  # ✔ Правильное имя колонки
+            Средн_зп_от=("Salary_from", "mean"),  # ✔ Теперь колонка существует
+            Средн_зп_до=("Salary_to", "mean"),  # ✔ Теперь колонка существует
+            Средн_зп=("Salary_av", "mean"),
+            Медианная_зп=("Salary_av", "median")
+        ).reset_index()
+
+        # 6️⃣ Теперь загружаем **навыки отдельно** (чтобы не размножать вакансии)
+
+        cursor.execute("""
+            SELECT r.name AS "Профессия", ks.Skill_name
+            FROM vacancies v
+            JOIN vacancy_role vr ON v.id = vr.Vacancy_ID
+            JOIN roles r ON vr.Role_ID = r.id
+            JOIN categories c ON r.category_id = c.id
+            JOIN vacancy_keyskill vks ON v.id = vks.Vacancy_ID
+            JOIN key_skills ks ON vks.Keyskill_id = ks.id
+            JOIN temp_ids t ON v.id = t.id  -- Используем временную таблицу
+        """)
+        skills_data = cursor.fetchall()
+
+    # 7️⃣ Создаем DataFrame с навыками
+    df_skills = pd.DataFrame(skills_data, columns=["Профессия", "Навык"])
+
+    # 8️⃣ Считаем ТОП-5 навыков по профессиям
+    df_skills_count = df_skills.groupby(["Профессия", "Навык"]).size().reset_index(name="Частота")
+    df_skills_sorted = df_skills_count.sort_values(["Профессия", "Частота"], ascending=[True, False])
     
-    exchange_rates['RUB'] = 1.0  # Добавляем рубль
-    
-    print(exchange_rates)
-    return exchange_rates
+    top_skills_grouped = (
+        df_skills_sorted.groupby("Профессия")["Навык"]
+        .apply(lambda x: ", ".join(x.head(5)))  # Берем 5 самых популярных навыков
+        .reset_index()
+        .rename(columns={"Навык": "ТОП5 навыков"})
+    )
 
-def get_salary_analytics(vacancies):
-    
-    # Создаем список словарей
-    flat_vacancies = []
+    # 9️⃣ Объединяем таблицы
+    df_roles = df_roles.merge(top_skills_grouped, on="Профессия", how="left")
 
-    for vacancy in vacancies:
-        flat_item = {
-            "id": vacancy["id"],
-            "name": vacancy["name"],
-            "url": vacancy["url"],
-            "professional_roles": [role["name"] for role in vacancy["professional_roles"]]
-        }
-        salary = vacancy["salary"]
-        if salary:
-            flat_item["salary_from"] = salary["from"]
-            flat_item["salary_to"] = salary["to"]
-            flat_item["currency"] = salary["currency"]
-            flat_item["gross"] = salary["gross"]
+    # 🔟 Подсчет ТОП-5 навыков для "ИТОГО"
+    total_top_skills = ", ".join(
+        df_skills_count.groupby("Навык")["Частота"]
+        .sum()
+        .reset_index()
+        .sort_values("Частота", ascending=False)["Навык"]
+        .head(5)
+    )
 
-        flat_vacancies.append(flat_item)
+    # 🔟 Добавляем строку "ИТОГО"
+    total_row = pd.DataFrame([{
+        "Профессия": "ИТОГО",
+        "Вакансий_всего": df_roles["Вакансий_всего"].sum(),
+        "Вакансий_с_зп": df_roles["Вакансий_с_зп"].sum(),
+        "Средн_зп_от": df_vacancies["Salary_from"].mean(),
+        "Средн_зп_до": df_vacancies["Salary_to"].mean(),
+        "Средн_зп": df_vacancies["Salary_av"].mean(),
+        "Медианная_зп": df_vacancies["Salary_av"].median(),
+        "ТОП5 навыков": total_top_skills
+    }])
 
-    df_vacancies = pd.DataFrame(flat_vacancies)
-    df_vacancies.to_csv('raw_vac_file.csv')
+    # 🔟 Объединяем с "ИТОГО" и округляем
+    df_final = pd.concat([df_roles, total_row], ignore_index=True)
 
-    # 4.1: Развертывание списка ролей в отдельные строки
-    df_vacancies = df_vacancies.explode('professional_roles')
-    print("\nDataFrame после развертывания ролей:")
-    print(df_vacancies[['professional_roles', 'salary_from', 'salary_to']])
-
-    # Шаг 2: Дропнем нерелевантные профессии с использованием isin()
-    df_vacancies = df_vacancies[df_vacancies['professional_roles'].isin(prof_roles_list)]
-
-    # Заполняем пропущенные значения от/до имеющимися значениями до/от
-    df_vacancies['salary_to'].fillna(df_vacancies['salary_from'], inplace=True)
-    df_vacancies['salary_from'].fillna(df_vacancies['salary_to'], inplace=True)
-    df_vacancies.to_csv('after_price_filling_vac_file.csv')
-
-    print(f'Найдено вакансий {len(df_vacancies)}')
-
-    # Подсчёт строк, где хотя бы одно из полей 'salary_from' или 'salary_to' не NaN
-    filled_salary_count = df_vacancies[['salary_from', 'salary_to']].notnull().any(axis=1).sum()
-
-    print(f"Количество вакансий с заполненными зарплатными полями: {filled_salary_count}")
-
-    # Получение курсов валют
-    exchange_rates = get_cbr_exchange_rates()
-
-    # Определяем колонки для конвертации
-    columns_to_convert = ['salary_from', 'salary_to']
-
-    # Проверка наличия всех валют в exchange_rates и дропаем пустые
-    unique_currencies = df_vacancies['currency'].dropna().unique()
-    missing_currencies = set(unique_currencies) - set(exchange_rates.keys())
-    if missing_currencies:
-        print(f"Внимание! Отсутствуют курсы для валют: {missing_currencies}")
-        # Можно решить, как обработать отсутствующие валюты. Например, заполнить курсом 1.0 или удалить такие строки
-        # Для примера, заполним отсутствующие курсы значением np.nan
-        for currency in missing_currencies:
-            exchange_rates[currency] = 1.
-
-    # Создаём колонку курсов обмена для каждой строки
-    df_vacancies['exchange_rate'] = df_vacancies['currency'].map(exchange_rates)
-
-    # Конвертируем зарплаты в рубли, заменяя оригинальные значения
-    df_vacancies[columns_to_convert] = df_vacancies[columns_to_convert].multiply(df_vacancies['exchange_rate'], axis=0)
-
-    # Обновляем колонку 'currency' на 'RUB'
-    df_vacancies['currency'] = 'RUB'
-
-    # Удаляем временную колонку 'exchange_rate'
-    df_vacancies.drop('exchange_rate', axis=1, inplace=True)
-
-    print("\nDataFrame после конвертации в рубли:")
-    print(df_vacancies)
-
-    # Шаг 4: Расчёт среднего значения зарплат по всем ролям
-    average_salary_by_role = df_vacancies.groupby('professional_roles').agg(
-        average_salary_from=pd.NamedAgg(column='salary_from', aggfunc='mean'),
-        average_salary_to=pd.NamedAgg(column='salary_to', aggfunc='mean')
-    ).dropna().reset_index()
-
-    print('----------- Сгруппировали по проф ролям -------------')
-    print(average_salary_by_role)
-
-    # Сортировка на месте
-    average_salary_by_role.sort_values(by='average_salary_to', ascending=False, inplace=True)
-    average_salary_by_role.reset_index(drop=True, inplace=True)
-
-    print("\nСредняя зарплата по всем проф. ролям:")
-    print(average_salary_by_role)
-
-    # Вычисление итоговых средних значений для столбцов 'Средняя зарплата от' и 'Средняя зарплата до'
-    average_salary_from_mean = average_salary_by_role['average_salary_from'].mean()
-    average_salary_to_mean = average_salary_by_role['average_salary_to'].mean()
-
-    # Создание DataFrame для итоговой строки
-    total_row = pd.DataFrame({
-        'professional_roles': ['ИТОГО'],
-        'average_salary_from': [average_salary_from_mean],
-        'average_salary_to': [average_salary_to_mean]
+    df_final = df_final.rename(columns={
+        "Вакансий_всего" : "Вакансий всего",
+        "Вакансий_с_зп" : "Вакансий с з/п",
+        "Средн_зп_от": "Средн з/п от, тыс. ₽",
+        "Средн_зп_до": "Средн з/п до, тыс. ₽",
+        "Средн_зп": "Средн з/п, тыс. ₽",
+        "Медианная_зп": "Медианная з/п, тыс. ₽"
     })
 
-    # Добавление итоговой строки в основной DataFrame
-    average_salary_by_role = pd.concat([average_salary_by_role, total_row], ignore_index=True)
+    # Добавляем колонку "Вакансий с з/п (%)"
+    df_final["% с з/п"] = df_final["Вакансий с з/п"] / df_final["Вакансий всего"] * 100
 
-    print("\nDataFrame после добавления итоговой строки 'ИТОГО':")
-    print(average_salary_by_role)
+    # 🔟 Приводим к `int`, чтобы числа не печатались с `.0`
+    numeric_columns = ["% с з/п", "Средн з/п от, тыс. ₽", "Средн з/п до, тыс. ₽", 
+                       "Средн з/п, тыс. ₽", "Медианная з/п, тыс. ₽"]
+    
+    df_final = df_final.dropna()
 
-    # Округление и преобразование столбцов в целые числа в одну строку
-    salary_columns = ['average_salary_from', 'average_salary_to']
-    average_salary_by_role[salary_columns] = (average_salary_by_role[salary_columns]/1000).round().astype(int)
 
-    # Переименование столбцов
-    average_salary_by_role.rename(columns={
-        'professional_roles': 'Профессиональная роль',
-        'average_salary_from': 'Средняя зарплата от (тыс. ₽)',
-        'average_salary_to': 'Средняя зарплата до (тыс. ₽)'
-    }, inplace=True)
+    df_final[numeric_columns] = df_final[numeric_columns].fillna(0).round(0).astype(int)
+    print(df_final)
 
-    average_salary_by_role.to_csv (salary_by_prof_file)
+    # Создаем текстовую колонку "Указана з/п"
+    df_final["Указана з/п"] = df_final.apply(lambda row: f"{row['Вакансий с з/п']} ({row['% с з/п']}%)", axis=1)
 
-    print(average_salary_by_role)
+    df_return = df_final[["Профессия", 
+                          "Медианная з/п, тыс. ₽",
+                          "Вакансий всего", 
+                          "Указана з/п", 
+                          "ТОП5 навыков" ]]
+    
+    df_sorted = df_return[:-1].sort_values(by="Вакансий всего", ascending=False)  # Сортируем все, кроме последней
+    df_return = pd.concat([df_sorted, df_return[-1:]], ignore_index=True)  # Добавляем обратно последнюю строку
 
-    return average_salary_by_role
+    return [skill.strip() for skill in total_top_skills.split(',')], df_return
+
+def get_hh_analytics(query_string='ML', roles=[73,96,104,107,124,126,148], areas=['1']):
+    ids_found = process_vacancies(search_query=query_string, areas=areas, prof_roles = roles)
+    key_skills, df = get_salary_analytics(ids_found = ids_found)
+
+    return key_skills, df
 
 def main():
-    # Открываем файл и загружаем JSON-данные
-    with open(vacancies_file, 'r', encoding='utf-8') as file:
-        vacancies = json.load(file)
-
-    get_salary_analytics(vacancies)
+    key_skills, df = get_hh_analytics(roles=[])
+    print(key_skills)
+    print(df)
 
 if __name__ == "__main__":
     main()            

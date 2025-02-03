@@ -1,5 +1,6 @@
 
 import re
+import sqlite3
 
 def get_terms_from_text(text):
     # Используем регулярное выражение для разделения по любым пробельным символам
@@ -9,6 +10,22 @@ def get_terms_from_text(text):
     terms = [term for term in terms if term]
 
     return terms
+
+# URL API HH для получения справочника профессиональных ролей
+HH_PROF_ROLES_URL = "https://api.hh.ru/professional_roles"
+
+# API HH: справочник городов
+HH_API_CITIES_URL = "https://api.hh.ru/areas"
+
+# API ЦБ РФ: курсы валют
+CBR_API_URL = "https://www.cbr-xml-daily.ru/daily_json.js"
+
+# Файл базы данных
+DB_FILE = "hh-vacancies.db"
+
+def get_db_connection():
+    """Создает соединение с базой данных."""
+    return sqlite3.connect(DB_FILE)
 
 vacancies_file='AI_DS_vacancies.json'
 vacancies_csv='AI_DS_vacancies.csv'
