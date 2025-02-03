@@ -1,17 +1,9 @@
-from flask import Flask, render_template, request
-import pandas as pd
-from hh_parse import get_hh_analytics
+from flask import Flask, render_template, request, g
+from vacancies_analyze import get_hh_analytics
 import random
+from constants import * 
 
 app = Flask(__name__)
-
-roles_dict = {
-    'all': 'Все',
-    'developer': 'Разработчик',
-    'dataScientist': 'Data scientist',
-    'teamLead': 'Тимлид',
-    'tester': 'Тестировщик'
-}
 
 cities_dict = {
     '1': 'Москва',
@@ -54,9 +46,44 @@ pv_text = """
 
 proverbs = pv_text.strip().splitlines()
 
+# Функция подключения
+def get_db():
+    if "db" not in g:  # Проверяем, есть ли уже подключение
+        g.db = get_db_connection()
+        g.db.row_factory = sqlite3.Row  # Позволяет обращаться к колонкам по именам
+    return g.db
+
+# Закрываем соединение после запроса
+@app.teardown_appcontext
+def close_db(error):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()
+
+def get_categories_dict():
+    if "categories_dict" not in g:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, name FROM categories")
+        categories = cursor.fetchall()
+        g.categories_dict = {row["id"]: row["name"] for row in categories}  # Исправлен доступ по ключам
+        cursor.close()
+
+    return g.categories_dict
+
+def get_roles_dict():
+    if "roles_dict" not in g:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, name, category_id FROM roles")
+        roles = cursor.fetchall()
+        g.roles_dict = {row["id"]: {"name": row["name"], "category_id": row["category_id"]} for row in roles}
+        cursor.close()
+
+    return g.roles_dict
+
 @app.route("/")
 def index():
-
 
     # return render_template('index.html', main_data=main_data, **context)
     return render_template('index.html', proverb = random.choice(proverbs))
@@ -66,52 +93,63 @@ def index():
 @app.route('/contacts/')
 def contacts():
     # где то взяли данные
-    developer_name = 'Leo'
+    developer_name = 'Виктор Щеблецов'
     # Контекст name=developer_name - те данные, которые мы передаем из view в шаблон
     # context = {'name': developer_name}
     # Словарь контекста context
     # return render_template('contacts.html', context=context)
-    return render_template('contacts.html', name=developer_name, creation_date='16.01.2020')
-
+    return render_template('contacts.html', name=developer_name, creation_date='16.01.2025')
 
 # Роут, куда отправляются данные формы (метод POST)
 @app.route('/results', methods=['POST'])
 def results():
     query_string = request.form.get('queryString')
-    role = request.form.get('professionalRole')   # напр., "developer"
-    areas = request.form.getlist('areas')         # напр., ["1", "1261"]
+    roles = request.form.getlist('professionalRole')  # Получаем список выбранных ролей
+    areas = request.form.getlist('areas')  # Получаем список выбранных городов
     
-    # Восстанавливаем названия:
-    role_label = roles_dict.get(role, 'Неизвестная роль')
-    areas_labels = [cities_dict.get(a, 'Неизвестный город') for a in areas]
+    # Восстанавливаем названия ролей и городов:
+    roles_dict = get_roles_dict()
+    roles_labels = [roles_dict.get(int(role), {"name": "Неизвестная роль"})["name"] for role in roles]
+    areas_labels = [cities_dict.get(area, 'Неизвестный город') for area in areas]
     
-    # Теперь можно собрать всё в словарь:
+    # Подготавливаем параметры для отображения
     param_dict = {
         "Название профессии": query_string,
-        "Профессиональная роль": role_label,
+        "Профессиональные роли": ", ".join(roles_labels) if roles_labels else "—",
         "Города": ", ".join(areas_labels) if areas_labels else "—"
     }
 
-    # Получаем аналитику из бэкэнда - программа парсинга HH
-    key_skills, df_salarys = get_hh_analytics(query_string=query_string,role=role,areas=areas)
+    # Вызываем функцию аналитики с массивами ролей и городов
+    key_skills, df_salarys = get_hh_analytics(query_string=query_string, roles=roles, areas=areas)
 
     salary_html = df_salarys.to_html(classes="table table-striped table-bordered table-hover")
-      
-    # И передать в шаблон результатов:
-    return render_template("results.html", 
-                           param_dict=param_dict, 
-                           key_skills=key_skills, 
-                           salary_html = salary_html,
-                           proverb = random.choice(proverbs))
 
+    # Передаем данные в шаблон `results.html`
+    return render_template(
+        "results.html",
+        param_dict=param_dict,
+        key_skills=key_skills,
+        salary_html=salary_html,
+        proverb=random.choice(proverbs)
+    )
 
 @app.route('/form', methods=['GET'])
 def form():
-    return render_template('form.html', 
-                           roles_dict=roles_dict, 
-                           cities_dict=cities_dict,
-                           proverb = random.choice(proverbs))
 
+    # 1️⃣ Загружаем категории
+    categories_dict = get_categories_dict()
+
+    # 2️⃣ Загружаем профессиональные роли и ссылки на категории
+    roles_dict = get_roles_dict()
+
+    # 3️⃣ Передаем данные в шаблон form.html
+    return render_template(
+        "form.html",
+        categories_dict=categories_dict,  # Категории
+        roles_dict=roles_dict,            # Профессиональные роли
+        cities_dict=cities_dict,          # Города
+        proverb=random.choice(proverbs)   # Случайная пословица
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -33,20 +33,36 @@
             <h1 class="text-danger text-center mb-4">Получить аналитику по профессии</h1>
             <p>Введите название профессии или ключевое слово:</p>
             <form id="searchForm" action="{{ url_for('results') }}" method="post" class="p-4 bg-white rounded shadow-sm">
+
                 <!-- Text Input -->
                 <div class="mb-3">
                     <label for="searchQuery" class="form-label">Название профессии:</label>
-                    <input type="text" id="searchQuery" name="queryString" class="form-control" placeholder="ML" required>
+                    <input type="text" id="searchQuery" name="queryString" class="form-control" placeholder="ML">
                 </div>
-                <!-- Select Dropdown -->
+        
+                <!-- Верхний селектор категорий -->
                 <div class="mb-3">
-                    <label for="role" class="form-label">Профессиональная роль:</label>
-                    <select id="role" name="professionalRole" class="form-select">
-                        {% for role_value, role_label in roles_dict.items() %}
-                        <option value="{{ role_value }}">{{ role_label }}</option>
+                    <label for="category" class="form-label">Категория:</label>
+                    <select id="category" name="category" class="form-select">
+                        {% for category_value, category_label in categories_dict.items() %}
+                        <option value="{{ category_value }}" {% if category_value == 11 %}selected{% endif %}>
+                            {{ category_label }}
+                        </option>
                         {% endfor %}
                     </select>
                 </div>
+        
+                <!-- Зависимый селектор профессиональных ролей -->
+                <div class="mb-3">
+                    <label for="role" class="form-label">Профессиональная роль:</label>
+                    <select id="role" name="professionalRole" multiple class="form-select">
+                        {% for role_value, role_label in roles_dict.items() %}
+                        <option value="{{ role_value }}" data-category="{{ role_label.category_id }}">{{ role_label.name }}</option>
+                        {% endfor %}
+                    </select>                    
+                </div>
+
+       
                 <!-- Multiple Select for cities -->
                 <div class="mb-3">
                     <label for="cities">Выберите города (без выбора - все):</label>
@@ -56,6 +72,7 @@
                         {% endfor %}
                     </select>
                 </div>
+        
                 <button type="submit" class="btn btn-danger mx-auto d-block" style="width: 50%;">Получить данные</button>
             </form>
             <blockquote class="blockquote text-center mt-4">
@@ -83,5 +100,42 @@
 
         <!-- Подключение скрипта загрузки -->
         <script src="{{ url_for('static', filename='js/form_handler.js') }}"></script>
+
+        <!-- Скрипт управления селектором нижнего уровня в зависимости от значения селектора первого уровня -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const categorySelect = document.getElementById("category");
+                const roleSelect = document.getElementById("role");
+            
+                function filterRoles() {
+                    const selectedCategory = categorySelect.value;
+            
+                    let hasVisibleRoles = false;
+            
+                    Array.from(roleSelect.options).forEach(option => {
+                        if (option.dataset.category === selectedCategory) {
+                            option.hidden = false;
+                            hasVisibleRoles = true;
+                        } else {
+                            option.hidden = true;
+                        }
+                    });
+            
+                    // Очищаем выбор, если нет доступных ролей
+                    if (!hasVisibleRoles) {
+                        roleSelect.innerHTML = '<option disabled selected>Нет доступных ролей</option>';
+                    }
+                }
+            
+                // Фильтрация при загрузке страницы
+                filterRoles();
+            
+                // Обновление при изменении категории
+                categorySelect.addEventListener("change", filterRoles);
+            });
+            </script>
+            
+                   
+        
     </body>
 </html>
