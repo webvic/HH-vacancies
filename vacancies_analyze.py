@@ -1,74 +1,76 @@
 import pandas as pd
 from constants import *
 from hh_parse import process_vacancies
-import sqlite3
+from sqlalchemy.orm import aliased
+from models import *
+from db import db
 
 def get_salary_analytics(ids_found):
+    """Считает вакансии и зарплаты, затем формирует DataFrame."""
     
-    """Сначала считаем вакансии и зарплаты, затем добавляем навыки."""
-    
-    with sqlite3.connect(DB_FILE) as conn:
-        cursor = conn.cursor()
+    # Алиасы для удобства
+    vr = aliased(vacancy_role)  # Промежуточная таблица "Вакансия - Роль"
+    vks = aliased(vacancy_keyskill)  # Промежуточная таблица "Вакансия - Навык"
 
-        # 1️⃣ Создаем временную таблицу
-        cursor.execute("CREATE TEMP TABLE temp_ids (id INTEGER PRIMARY KEY)")
-        #  заполняем ее найденными при поиске id
-        cursor.executemany("INSERT INTO temp_ids (id) VALUES (?)", [(i,) for i in ids_found])
-
-        # 1️⃣ Собираем объединенную таблицу для аналитики
-        cursor.execute("""
-            SELECT r.name AS "Профессия", v.Salary_from, v.Salary_to
-            FROM vacancies v
-            JOIN vacancy_role vr ON v.id = vr.Vacancy_ID
-            JOIN roles r ON vr.Role_ID = r.id
-            JOIN categories c ON r.category_id = c.id
-            JOIN temp_ids t ON v.id = t.id  -- Используем временную таблицу
-        """)
-        
-        data = cursor.fetchall()
-
-        # 2️⃣ Создаем DataFrame с вакансиями (без навыков)
-        df_vacancies = pd.DataFrame(data, columns=["Профессия", "Salary_from", "Salary_to"])
-
-        # 3️⃣ Добавляем колонку "Средняя зарплата"
-        df_vacancies["Salary_av"] = df_vacancies.apply(
-            lambda row: (row["Salary_from"] + row["Salary_to"]) / 2 
-            if pd.notnull(row["Salary_from"]) and pd.notnull(row["Salary_to"]) else
-            row["Salary_from"] if pd.notnull(row["Salary_from"]) else
-            row["Salary_to"], axis=1
+    # 1️⃣ Получаем данные через SQLAlchemy ORM
+    results = (
+        db.session.query(
+            Role.name.label("Профессия"), 
+            Vacancy.salary_from, 
+            Vacancy.salary_to
         )
+        .select_from(Vacancy)  # Явно указываем начальную таблицу
+        .join(vr, Vacancy.id == vr.c.vacancy_id)  # vacancy_role (мост)
+        .join(Role, vr.c.role_id == Role.id)  # roles
+        .join(Category, Role.category_id == Category.id)  # categories
+        .filter(Vacancy.id.in_(ids_found))  # Вместо temp_ids используем filter()
+        .all()
+    )
 
-        # 4️⃣ Переводим зарплаты в тысячи ₽
-        df_vacancies.loc[:, ["Salary_from", "Salary_to", "Salary_av"]] /= 1000
-        print("Колонки в df_vacancies:", df_vacancies.columns.tolist())
+    # 2️⃣ Преобразуем результат в DataFrame
+    df_vacancies = pd.DataFrame(results, columns=["Профессия", "Salary_from", "Salary_to"])
+    
+      # 3️⃣ Добавляем колонку "Средняя зарплата"
+    df_vacancies["Salary_av"] = df_vacancies.apply(
+        lambda row: (row["Salary_from"] + row["Salary_to"]) / 2 
+        if pd.notnull(row["Salary_from"]) and pd.notnull(row["Salary_to"]) else
+        row["Salary_from"] if pd.notnull(row["Salary_from"]) else
+        row["Salary_to"], axis=1
+    )
+
+    # 4️⃣ Переводим зарплаты в тысячи ₽
+    df_vacancies.loc[:, ["Salary_from", "Salary_to", "Salary_av"]] /= 1000
+    print("Колонки в df_vacancies:", df_vacancies.columns.tolist())
 
 
-        # 5️⃣ Группируем данные по профессиям (подсчет вакансий и зарплат)
-        df_roles = df_vacancies.groupby("Профессия").agg(
-            Вакансий_всего=("Профессия", "size"),  # ✔ Корректное создание колонки в agg()
-            Вакансий_с_зп=("Salary_av", "count"),  # ✔ Правильное имя колонки
-            Средн_зп_от=("Salary_from", "mean"),  # ✔ Теперь колонка существует
-            Средн_зп_до=("Salary_to", "mean"),  # ✔ Теперь колонка существует
-            Средн_зп=("Salary_av", "mean"),
-            Медианная_зп=("Salary_av", "median")
-        ).reset_index()
+    # 5️⃣ Группируем данные по профессиям (подсчет вакансий и зарплат)
+    df_roles = df_vacancies.groupby("Профессия").agg(
+        Вакансий_всего=("Профессия", "size"),  # ✔ Корректное создание колонки в agg()
+        Вакансий_с_зп=("Salary_av", "count"),  # ✔ Правильное имя колонки
+        Средн_зп_от=("Salary_from", "mean"),  # ✔ Теперь колонка существует
+        Средн_зп_до=("Salary_to", "mean"),  # ✔ Теперь колонка существует
+        Средн_зп=("Salary_av", "mean"),
+        Медианная_зп=("Salary_av", "median")
+    ).reset_index()
 
-        # 6️⃣ Теперь загружаем **навыки отдельно** (чтобы не размножать вакансии)
+    # 6️⃣ Теперь загружаем **навыки отдельно** (чтобы не размножать вакансии)
+    results = (
+        db.session.query(
+            Role.name.label("Профессия"),
+            KeySkill.skill_name.label("Навык")
+        )
+        .select_from(Vacancy)  # Явно указываем начальную таблицу
+        .join(vr, Vacancy.id == vr.c.vacancy_id)  # vacancy_role (мост)
+        .join(Role, vr.c.role_id == Role.id)  # roles
+        .join(Category, Role.category_id == Category.id)  # categories
+        .join(vks, Vacancy.id == vks.c.vacancy_id)  # vacancy_keyskill (мост)
+        .join(KeySkill, vks.c.keyskill_id == KeySkill.id)  # key_skills
+        .filter(Vacancy.id.in_(ids_found))  # Вместо временной таблицы temp_ids
+        .all()
+    )
 
-        cursor.execute("""
-            SELECT r.name AS "Профессия", ks.Skill_name
-            FROM vacancies v
-            JOIN vacancy_role vr ON v.id = vr.Vacancy_ID
-            JOIN roles r ON vr.Role_ID = r.id
-            JOIN categories c ON r.category_id = c.id
-            JOIN vacancy_keyskill vks ON v.id = vks.Vacancy_ID
-            JOIN key_skills ks ON vks.Keyskill_id = ks.id
-            JOIN temp_ids t ON v.id = t.id  -- Используем временную таблицу
-        """)
-        skills_data = cursor.fetchall()
-
-    # 7️⃣ Создаем DataFrame с навыками
-    df_skills = pd.DataFrame(skills_data, columns=["Профессия", "Навык"])
+    # 2️⃣ Преобразуем результат в DataFrame
+    df_skills = pd.DataFrame(results, columns=["Профессия", "Навык"])
 
     # 8️⃣ Считаем ТОП-5 навыков по профессиям
     df_skills_count = df_skills.groupby(["Профессия", "Навык"]).size().reset_index(name="Частота")
