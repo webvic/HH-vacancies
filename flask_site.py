@@ -1,85 +1,25 @@
-from flask import Flask, render_template, request, g
+from flask import render_template, request, g
+from models import Category, Role  # ✅ Импортируем модели ORM
 from vacancies_analyze import get_hh_analytics
 import random
 from constants import * 
+from db import app
 
-app = Flask(__name__)
-
-cities_dict = {
-    '1': 'Москва',
-    '2': 'Санкт-Петербург',
-    '1202': 'Новосибирск',
-    '1261': 'Екатеринбург',
-    '1438': 'Казань',
-    '1042': 'Нижний Новгород',
-    '1043': 'Челябинск',
-    '1428': 'Самара',
-    '1424': 'Омск',
-    '1530': 'Ростов-на-Дону',
-    '1384': 'Уфа',
-    '1304': 'Красноярск',
-    '1368': 'Пермь',
-    '1376': 'Воронеж',
-    '1216': 'Волгоград',
-    'others': 'Прочие'
-}
-
-pv_text = """
-Без труда не вытащишь и рыбку из пруда
-Дело мастера боится
-Терпение и труд всё перетрут
-Работа дураков любит
-Без дела жить – только небо коптить
-Делу – время, потехе – час
-Как потопаешь, так и полопаешь
-Кто не работает, тот не ест
-Семь раз отмерь – один раз отрежь
-Маленькое дело лучше большого безделья
-Глаза боятся, а руки делают
-Без охоты нет работы
-Семеро одного не ждут
-Лентяю всегда праздник
-Где руки и охота, там спорится работа
-Не спеши языком, спеши делом
-Работа не волк – в лес не убежит
-"""
-
-proverbs = pv_text.strip().splitlines()
-
-# Функция подключения
-def get_db():
-    if "db" not in g:  # Проверяем, есть ли уже подключение
-        g.db = get_db_connection()
-        g.db.row_factory = sqlite3.Row  # Позволяет обращаться к колонкам по именам
-    return g.db
-
-# Закрываем соединение после запроса
-@app.teardown_appcontext
-def close_db(error):
-    db = g.pop("db", None)
-    if db is not None:
-        db.close()
+proverbs = PROVERBS.strip().splitlines()
 
 def get_categories_dict():
+    """Возвращает словарь категорий, кешируя его в `g`."""
     if "categories_dict" not in g:
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT id, name FROM categories")
-        categories = cursor.fetchall()
-        g.categories_dict = {row["id"]: row["name"] for row in categories}  # Исправлен доступ по ключам
-        cursor.close()
-
+        categories = Category.query.all()  # ✅ Получаем все категории через SQLAlchemy ORM
+        g.categories_dict = {category.id: category.name for category in categories}
     return g.categories_dict
 
-def get_roles_dict():
-    if "roles_dict" not in g:
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT id, name, category_id FROM roles")
-        roles = cursor.fetchall()
-        g.roles_dict = {row["id"]: {"name": row["name"], "category_id": row["category_id"]} for row in roles}
-        cursor.close()
 
+def get_roles_dict():
+    """Возвращает словарь ролей, кешируя его в `g`."""
+    if "roles_dict" not in g:
+        roles = Role.query.all()  # ✅ Получаем все роли через ORM
+        g.roles_dict = {role.id: {"name": role.name, "category_id": role.category_id} for role in roles}
     return g.roles_dict
 
 @app.route("/")
@@ -88,7 +28,6 @@ def index():
     # return render_template('index.html', main_data=main_data, **context)
     return render_template('index.html', proverb = random.choice(proverbs))
     # return render_template('index.html', main_data=main_data, name='Leo', age=99)
-
 
 @app.route('/contacts/')
 def contacts():

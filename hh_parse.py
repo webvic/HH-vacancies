@@ -1,10 +1,11 @@
 import requests
-import sqlite3
 import re
 import time
 import random
 from datetime import datetime
 from constants import *
+from models import Vacancy, City, Role, KeySkill
+from db import db
 
 def random_delay(min_seconds=10, max_seconds=15):
     """Устанавливает случайную задержку между min_seconds и max_seconds."""
@@ -13,12 +14,9 @@ def random_delay(min_seconds=10, max_seconds=15):
     time.sleep(delay)
     print(f"Продолжаем...")
 
-# Глобальный словарь с курсами валют
-exchange_rates = {}
-
 def get_exchange_rates():
     """Загружает курсы валют из API ЦБ РФ и сохраняет в глобальном словаре exchange_rates."""
-    global exchange_rates  # Разрешаем изменять глобальную переменную
+    exchange_rates = {} 
 
     try:
         response = requests.get(CBR_API_URL)
@@ -35,6 +33,8 @@ def get_exchange_rates():
     except requests.RequestException as e:
         print(f"❌ Ошибка загрузки курсов валют: {e}")
         exchange_rates = {}
+    
+    return exchange_rates        
  
 def get_vacancies_by_query(search_query="ML", areas=["1"], professional_roles = [73,96,104,107],per_page=100):
                            
@@ -114,6 +114,7 @@ def get_full_vacancy_data(vacancy_id):
     "Referer": "https://hh.ru/",  # Маскировка источника запроса
     "Connection": "keep-alive",
     "Cache-Control": "no-cache",
+    "Accept-Encoding": "gzip"  # Включаем сжатие
     }
     
     try:
@@ -156,94 +157,101 @@ def get_terms_from_description(description):
     for line in cleaned_items:
         terms += re.findall(r"\b(?:[A-Za-z0-9]*[A-Za-z]+[A-Za-z0-9]*)(?:[-\s][A-Za-z0-9]*[A-Za-z]+[A-Za-z0-9]*)*\b", line)
 
-    return list(set(terms))
+    return set(terms)
 
-def save_vacancy_to_db(vacancy_data):
-    """Сохраняет вакансию в базу данных, включая город, профессиональные роли и ключевые навыки."""
-    conn = get_db_connection()
-    with conn:
-        cursor = conn.cursor()
+def save_vacancy_to_db(vacancy_data, exchange_rates):
+    """Сохраняет вакансию в базу данных через SQLAlchemy ORM."""
 
-        vacancy_id = vacancy_data["id"]
-        name = vacancy_data.get("name", "Не указано")
-        date_time = datetime.strptime(vacancy_data.get("published_at", ""), "%Y-%m-%dT%H:%M:%S%z").timestamp()
-        
-        salary = vacancy_data.get("salary", {})
-        
-        if salary:
-            # Если зарплата указана, извлекаем данные, иначе присваиваем None
-            currency = salary.get("currency")
+    vacancy_id = vacancy_data["id"]
+    name = vacancy_data.get("name", "Не указано")
+    date_time = datetime.strptime(
+        vacancy_data.get("published_at", ""), "%Y-%m-%dT%H:%M:%S%z"
+    ).timestamp()
 
-            currency_rate = exchange_rates[currency]
-            
-            # Проверяем оля От, До на пустые значения. Если непустые, переводим в рубли
-            salary_from = salary.get("from")
-            if salary_from: salary_from *=  currency_rate
-            salary_to = salary.get("to")
-            if salary_to: salary_to *= currency_rate
+    salary = vacancy_data.get("salary", {})
+    
+    # 1️⃣ Конвертируем зарплату в рубли
+    if salary:
+        currency = salary.get("currency")
+        currency_rate = exchange_rates.get(currency, 1)  # По умолчанию курс 1, если неизвестная валюта
 
-        else:
-            salary_from = None
-            salary_to = None                  
-        
-        # Сохраняем вакансию
-        cursor.execute("""
-            INSERT INTO vacancies (id, Vacanciy_name, Date_time, Salary_from, Salary_to)
-            VALUES (?, ?, ?, ?, ?)
-            ON CONFLICT(id) DO UPDATE SET 
-                Vacanciy_name = excluded.Vacanciy_name,
-                Date_time = excluded.Date_time,
-                Salary_from = excluded.Salary_from,
-                Salary_to = excluded.Salary_to;
-        """, (vacancy_id, name, date_time, salary_from, salary_to))
+        salary_from = salary.get("from")
+        salary_from = salary_from * currency_rate if salary_from else None
 
-        # Связываем вакансию с городами
-        city_id = vacancy_data.get("area", {}).get("id")
-        if city_id:
-            cursor.execute("INSERT OR IGNORE INTO cities (id, name) VALUES (?, ?)", (city_id, vacancy_data["area"]["name"]))
-            cursor.execute("INSERT OR IGNORE INTO vacancy_city (Vacancy_ID, City_ID) VALUES (?, ?)", (vacancy_id, city_id))
+        salary_to = salary.get("to")
+        salary_to = salary_to * currency_rate if salary_to else None
+    else:
+        salary_from, salary_to = None, None
 
-        # Извлекаем профессиональные роли (из поля `professional_roles`)
-        professional_roles = vacancy_data.get("professional_roles", [])
-        for role in professional_roles:
-            role_id = role["id"]
-            role_name = role["name"]
-            
-            cursor.execute("INSERT OR IGNORE INTO roles (id, name) VALUES (?, ?)", (role_id, role_name))
-            cursor.execute("INSERT OR IGNORE INTO vacancy_role (Vacancy_ID, Role_ID) VALUES (?, ?)", (vacancy_id, role_id))
+    # 2️⃣ Добавляем или обновляем вакансию
+    vacancy = db.session.get(Vacancy, vacancy_id)  # Ищем вакансию по ID
+    if vacancy:
+        vacancy.vacancy_name = name
+        vacancy.date_time = date_time
+        vacancy.salary_from = salary_from
+        vacancy.salary_to = salary_to
+    else:
+        vacancy = Vacancy(
+            id=vacancy_id,
+            vacancy_name=name,
+            date_time=date_time,
+            salary_from=salary_from,
+            salary_to=salary_to,
+        )
+        db.session.add(vacancy)
 
-        # Извлекаем ключевые навыки
-        skills = [skill["name"] for skill in vacancy_data.get("key_skills", [])]
-        description = vacancy_data.get("description", "")
-        extracted_terms = get_terms_from_description(description)
-        unique_terms = list(set(skills + extracted_terms))
+    # 3️⃣ Привязываем вакансию к городу
+    city_data = vacancy_data.get("area", {})
+    city_id = city_data.get("id")
+    if city_id:
+        city = db.session.get(City, city_id)
+        if not city:
+            city = City(id=city_id, name=city_data["name"])
+            db.session.add(city)
 
-        # Сохраняем навыки в `Key_Skills`
-        for term in unique_terms:
-            cursor.execute("INSERT OR IGNORE INTO Key_skills (Skill_name) VALUES (?)", (term,))
+        vacancy.cities.append(city)  # Связываем через `vacancy_city`
 
-            # Получаем ID навыка
-            cursor.execute("SELECT id FROM Key_skills WHERE Skill_name = ?", (term,))
-            skill_id = cursor.fetchone()[0]
+    # 4️⃣ Добавляем профессиональные роли
+    professional_roles = vacancy_data.get("professional_roles", [])
+    for role_data in professional_roles:
+        role_id = role_data["id"]
+        role = db.session.get(Role, role_id)
+        if not role:
+            role = Role(id=role_id, name=role_data["name"])
+            db.session.add(role)
 
-            # Записываем в промежуточную таблицу
-            cursor.execute("INSERT OR IGNORE INTO Vacancy_Keyskill (Vacancy_id, Keyskill_id) VALUES (?, ?)", (vacancy_id, skill_id))
+        vacancy.roles.append(role)  # Связываем через `vacancy_role`
 
-    # print(f"\r✅ Вакансия {vacancy_id} сохранена.")
+    # 5️⃣ Добавляем ключевые навыки
+    skills = {skill["name"] for skill in vacancy_data.get("key_skills", [])}
+    description = vacancy_data.get("description", "")
+    extracted_terms = get_terms_from_description(description)  # Извлекаем навыки из описания
+    all_skills = list(set(skills | extracted_terms))  # Объединяем навыки
+
+    for skill_name in all_skills:
+        skill = db.session.query(KeySkill).filter_by(skill_name=skill_name).first()
+        if not skill:
+            skill = KeySkill(skill_name=skill_name)
+            db.session.add(skill)
+
+        vacancy.key_skills.append(skill)  # Связываем через `vacancy_keyskill`
+
+    # 6️⃣ Сохраняем все изменения в БД
+    db.session.commit()
 
 def get_saved_vacancies():
     """Получает список id вакансий из базы и возвращает их в виде множества."""
     
-    with get_db_connection() as conn:  
-        cursor = conn.cursor()
-        cursor.execute("SELECT id FROM vacancies")
-        return {row[0] for row in cursor.fetchall()}  # Возвращаем множество
+    # Выполняем SQLAlchemy-запрос и получаем все ID вакансий
+    vacancy_ids = db.session.query(Vacancy.id).all()
 
+    # Преобразуем результат в множество
+    return {vacancy_id[0] for vacancy_id in vacancy_ids}
 
 def process_vacancies(search_query="DS", areas=["1"], prof_roles = [73,96,104,107]):
     """Загружает вакансии и сохраняет их в базу с преобразованием валют в рубли."""
 
-    get_exchange_rates()
+    exchange_rates = get_exchange_rates()
 
     unique_id = get_vacancies_by_query(search_query, areas, prof_roles) # Получаем список id вакансий в базе
     unique_id = {int(uid) for uid in unique_id}  # Приводим к int
@@ -280,7 +288,7 @@ def process_vacancies(search_query="DS", areas=["1"], prof_roles = [73,96,104,10
 
             processed_count += 1            
             # Сохраняем вакансию в БД
-            save_vacancy_to_db(full_data)
+            save_vacancy_to_db(full_data, exchange_rates)
             if processed_count % 115 == 0: # Эмпирическое число 120 после которого парсинг блокируется на 30 сек
                 print(f'{len(to_process_id)} - осталось. Добавлено {processed_count}')
                 random_delay(1,5) # Упреждающая задержка воизбежание блокировки
